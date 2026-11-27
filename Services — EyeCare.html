@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>Book an Appointment — EyeCare</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@500;700;800&family=Poppins:wght@400;500;600&display=swap">
+        <link rel="icon" type="image/x-icon" href="c:\Users\Cha_En\Downloads\EyeCare Website\images\small logo  (1).png">
+        <style>
+            :root {
+                --blue: #5fadd2;
+                --sky: #a3ccff;
+                --navy: #3b5ba5;
+                --ink: #111;
+                --bg: #fff;
+                --surface: #fff;
+                --foot-text: #fff;
+                --icon-filter: none;
+                box-sizing: border-box;
+                padding-top: env(safe-area-inset-top,0px);
+                padding-bottom: env(safe-area-inset-bottom,0px)
+            }
+
+            @media (prefers-color-scheme: dark) {
+                :root:not([data-theme="light"]) {
+                    --ink:#eef3f8;
+                    --bg: #0f1720;
+                    --surface: #0f1720;
+                    --sky: #2c4a73;
+                    --icon-filter: invert(1)
+                }
+            }
+
+            :root[data-theme="dark"] {
+                --ink: #eef3f8;
+                --bg: #0f1720;
+                --surface: #0f1720;
+                --sky: #2c4a73;
+                --icon-filter: invert(1)
+            }
+
+            html {
+                scroll-padding-top: env(safe-area-inset-top,0px);
+                scroll-behavior: smooth
+            }
+
+            *,*::before,*::after {
+                box-sizing: border-box
+            }
+
+            body {
+                margin: 0;
+                background: var(--bg);
+                color: var(--ink);
+                font-family: Poppins,system-ui,sans-serif;
+                line-height: 1.5
+            }
+
+            img {
+                max-width: 100%;
+                display: block
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none
+            }
+
+            a:focus-visible,button:focus-visible {
+                outline: 3px solid var(--navy);
+                outline-offset: 3px
+            }
+
+            .tagline {
+                background: var(--blue);
+                color: #fff;
+                text-align: center;
+                font-size: clamp(14px,2.2vw,20px);
+                padding: 8px 12px;
+                letter-spacing: .02em
+            }
+
+            header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+                padding: 10px clamp(16px,3vw,28px);
+                background: var(--surface);
+                position: sticky;
+                top: env(safe-area-inset-top,0px);
+                z-index: 5
+            }
+
+            .logo {
+                font-family: Dosis,sans-serif;
+                font-weight: 800;
+                line-height: 1;
+                background: linear-gradient(90deg,#5fd6c9,#4a8fc4 55%,#3b5ba5);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                display: inline-flex;
+                align-items: center
+            }
+
+            .logo.sm {
+                font-size: clamp(34px,5vw,46px)
+            }
+
+            .logo.lg {
+                font-size: clamp(64px,11vw,120px)
+            }
+
+            .logo svg {
+                width: .7em;
+                height: .7em;
+                margin: 0 .02em
+            }
+
+            nav {
+                display: flex;
+                align-items: center;
+                gap: clamp(12px,2.6vw,32px)
+            }
+
+            nav a.link {
+                font-family: Dosis,sans-serif;
+                font-weight: 700;
+                font-size: clamp(14px,1.8vw,18px);
+                text-transform: uppercase
+            }
+
+            nav a.link:hover {
+                color: var(--navy)
+            }
+
+            nav .ico {
+                width: 20px;
+                height: 20px;
+                filter: var(--icon-filter)
+            }
+
+            .brand img {
+                height: clamp(34px,5vw,48px);
+                width: auto
+            }
+
+            .brand-lg {
+                width: 100%;
+                max-width: 520px;
+                height: auto
+            }
+
+            .brand img,.brand-lg {
+                border-radius: 8px
+            }
+
+            .banner {
+                width: 100%;
+                height: clamp(180px,30vw,340px);
+                object-fit: cover
+            }
+
+            .frames {
+                padding: 18px 16px 28px;
+                text-align: center
+            }
+
+            .frames h2 {
+                font-family: Dosis,sans-serif;
+                font-weight: 700;
+                font-size: clamp(18px,2.6vw,24px);
+                margin: 0 0 6px;
+                text-transform: uppercase
+            }
+
+            .frame-row {
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                gap: clamp(8px,4vw,60px);
+                max-width: 1100px;
+                margin: 0 auto;
+                align-items: center
+            }
+
+            .frame-row img {
+                width: 100%;
+                height: auto;
+                mix-blend-mode: multiply
+            }
+
+            @media (prefers-color-scheme: dark) {
+                :root:not([data-theme="light"]) .frame-row img {
+                    mix-blend-mode:normal;
+                    background: #fff;
+                    border-radius: 12px;
+                    padding: 8px
+                }
+            }
+
+            .actions {
+                display: grid;
+                grid-template-columns: repeat(2,minmax(0,1fr));
+                gap: 24px;
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 28px 16px 40px;
+                text-align: center
+            }
+
+            .action {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0
+            }
+
+            .action img {
+                width: clamp(96px,16vw,140px);
+                height: auto;
+                margin-bottom: -4px
+            }
+
+            .btn {
+                display: inline-block;
+                background: var(--sky);
+                color: #fff;
+                font-family: Dosis,sans-serif;
+                font-weight: 700;
+                font-size: clamp(15px,2.2vw,20px);
+                text-transform: uppercase;
+                padding: 10px clamp(16px,4vw,40px);
+                text-shadow: 0 1px 2px rgba(0,0,0,.35);
+                transition: background .2s
+            }
+
+            .btn:hover {
+                background: var(--blue)
+            }
+
+            .about {
+                display: grid;
+                grid-template-columns: 1.15fr 1fr;
+                gap: clamp(16px,4vw,48px);
+                align-items: center;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 24px clamp(16px,4vw,36px) 48px
+            }
+
+            .about .logo-wrap {
+                display: flex;
+                justify-content: center
+            }
+
+            .about h2 {
+                font-family: Dosis,sans-serif;
+                font-weight: 800;
+                color: var(--blue);
+                font-size: clamp(40px,6vw,60px);
+                margin: 0;
+                line-height: 1
+            }
+
+            .about h3 {
+                font-size: clamp(16px,2vw,19px);
+                margin: 8px 0;
+                text-transform: uppercase;
+                font-weight: 600
+            }
+
+            .about p {
+                margin: 0;
+                text-align: justify;
+                font-size: clamp(15px,1.9vw,18px)
+            }
+
+            footer {
+                background: var(--blue);
+                color: #fff;
+                padding: 36px clamp(16px,4vw,40px) 18px;
+                text-shadow: 0 1px 2px rgba(0,0,0,.3)
+            }
+
+            .cols {
+                display: grid;
+                grid-template-columns: repeat(5,1fr);
+                gap: 24px;
+                max-width: 1200px;
+                margin: 0 auto
+            }
+
+            footer h4 {
+                font-family: Dosis,sans-serif;
+                font-weight: 700;
+                font-size: 18px;
+                margin: 0 0 12px;
+                text-transform: uppercase;
+                text-align: center
+            }
+
+            footer ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: grid;
+                gap: 8px;
+                text-align: center;
+                font-size: 14px
+            }
+
+            footer a:hover {
+                text-decoration: underline
+            }
+
+            .contact li {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                text-align: left
+            }
+
+            .contact img {
+                width: 24px;
+                height: 24px;
+                flex: none
+            }
+
+            .copy {
+                text-align: center;
+                font-size: 12px;
+                margin: 28px 0 0
+            }
+
+            @media (max-width: 860px) {
+                .cols {
+                    grid-template-columns:repeat(2,1fr)
+                }
+
+                .contact {
+                    grid-column: 1/-1
+                }
+
+                .contact ul {
+                    max-width: 300px;
+                    margin: 0 auto
+                }
+            }
+
+            @media (max-width: 640px) {
+                .about {
+                    grid-template-columns:1fr
+                }
+
+                .about p {
+                    text-align: left
+                }
+
+                nav a.link {
+                    display: none
+                }
+            }
+
+            .wrap {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 0 clamp(16px,3vw,32px)
+            }
+
+            .hid {
+                position: absolute;
+                opacity: 0;
+                pointer-events: none;
+                width: 1px;
+                height: 1px;
+                overflow: hidden
+            }
+
+            [hidden] {
+                display: none!important
+            }
+
+            .vh {
+                padding: 26px 0 8px;
+                text-align: center
+            }
+
+            .vh h1,.sel h2,.gh {
+                font-family: Dosis,sans-serif;
+                font-weight: 700;
+                font-size: clamp(24px,4.4vw,38px);
+                margin: 0 0 14px;
+                text-transform: uppercase;
+                letter-spacing: .04em
+            }
+
+            .va {
+                border: 1px solid var(--ink);
+                background: transparent;
+                color: var(--ink);
+                border-radius: 8px;
+                padding: 5px 20px;
+                font: 500 13px Poppins;
+                display: inline-block;
+                cursor: pointer
+            }
+
+            .va:hover {
+                background: var(--blue);
+                color: #fff;
+                border-color: var(--blue)
+            }
+
+            .hb {
+                background: linear-gradient(135deg,#5fadd2,#3b5ba5);
+                color: #fff;
+                padding: clamp(22px,4vw,44px) 0;
+                text-shadow: 0 2px 4px rgba(0,0,0,.25)
+            }
+
+            .hb h1 {
+                font-family: Dosis,sans-serif;
+                font-weight: 700;
+                font-size: clamp(34px,6vw,54px);
+                margin: 0 0 6px
+            }
+
+            .hb p {
+                margin: 0;
+                max-width: 640px;
+                font-size: clamp(16px,2.2vw,22px)
+            }
+
+            .pt {
+                font-family: Dosis,sans-serif;
+                font-weight: 700;
+                font-size: clamp(30px,5vw,46px);
+                text-transform: uppercase;
+                letter-spacing: .03em;
+                margin: 20px 0 14px
+            }
+
+            .pt span {
+                color: var(--navy)
+            }
+
+            .bk {
+                display: grid;
+                grid-template-columns: 1.05fr .95fr 1.1fr;
+                gap: clamp(20px,3vw,36px);
+                padding-bottom: 28px;
+                align-items: start
+            }
+
+            .bk h2 {
+                font-weight: 400;
+                font-size: 20px;
+                text-align: center;
+                margin: 0 0 10px
+            }
+
+            .cal {
+                border: 1px solid rgba(128,128,128,.35);
+                border-radius: 6px;
+                padding: 10px 12px;
+                box-shadow: 0 1px 6px rgba(0,0,0,.08)
+            }
+
+            .mb {
+                display: none
+            }
+
+            .ch {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 12px;
+                font-weight: 600;
+                margin-bottom: 6px
+            }
+
+            .mv {
+                font-size: 22px;
+                padding: 0 10px;
+                cursor: pointer;
+                min-width: 30px
+            }
+
+            .cg {
+                display: grid;
+                grid-template-columns: repeat(7,1fr);
+                gap: 4px 0;
+                text-align: center;
+                font-size: 12px
+            }
+
+            .cg .wd {
+                font-weight: 600;
+                padding: 6px 0;
+                opacity: .8
+            }
+
+            label.day {
+                display: grid;
+                place-items: center;
+                width: 30px;
+                height: 30px;
+                margin: 0 auto;
+                border-radius: 50%;
+                border: 1px solid transparent;
+                font: 500 12px Poppins;
+                cursor: pointer
+            }
+
+            .day.booked {
+                background: #8a4a4f;
+                color: #fff
+            }
+
+            .day.pending {
+                background: #8c8472;
+                color: #fff
+            }
+
+            .day.partial {
+                background: #8a9a3a;
+                color: #fff
+            }
+
+            .rd:disabled+label,input:disabled+label.day {
+                opacity: .3;
+                cursor: not-allowed
+            }
+
+            input:checked+label.day {
+                background: #6f93cf;
+                border-color: #4a6fb0;
+                color: #fff;
+                box-shadow: 0 0 0 2px rgba(111,147,207,.4)
+            }
+
+            label.day:hover {
+                border-color: #4a6fb0
+            }
+
+            .leg {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px 14px;
+                margin-top: 14px;
+                font-size: 12px
+            }
+
+            .leg span {
+                display: flex;
+                align-items: center;
+                gap: 6px
+            }
+
+            .leg i {
+                width: 26px;
+                height: 26px;
+                border-radius: 50%;
+                display: grid;
+                place-items: center;
+                color: #fff;
+                font: normal 600 10px Poppins
+            }
+
+            .tg {
+                display: grid;
+                grid-auto-flow: column;
+                grid-template-rows: repeat(8,auto);
+                grid-template-columns: 1fr 1fr;
+                gap: 8px 10px
+            }
+
+            .tb {
+                padding: 9px 4px;
+                border: 1px solid rgba(128,128,128,.4);
+                border-radius: 4px;
+                text-align: center;
+                font: 400 12px Poppins;
+                cursor: pointer
+            }
+
+            .tb:hover {
+                border-color: #4a6fb0
+            }
+
+            input:checked+label.tb {
+                background: #6f93cf;
+                color: #fff;
+                border-color: #6f93cf
+            }
+
+            .reg label.l {
+                font-size: 18px;
+                display: block;
+                margin-bottom: 10px
+            }
+
+            .fi {
+                width: 100%;
+                border: 0;
+                border-radius: 12px;
+                background: #d6d6d6;
+                color: #111;
+                font: 500 18px Poppins;
+                padding: 11px 16px;
+                margin-bottom: 12px;
+                text-transform: uppercase
+            }
+
+            .fi::placeholder {
+                color: #444
+            }
+
+            .sel2 {
+                position: relative;
+                border: 1px solid var(--ink);
+                border-radius: 12px;
+                margin: 18px 0 14px;
+                display: flex;
+                align-items: center;
+                padding: 0 14px;
+                background: var(--surface)
+            }
+
+            .sel2 select {
+                appearance: none;
+                -webkit-appearance: none;
+                flex: 1;
+                border: 0;
+                background: none;
+                color: var(--ink);
+                font: 500 16px Poppins;
+                text-transform: uppercase;
+                padding: 14px 8px;
+                cursor: pointer;
+                min-width: 0
+            }
+
+            .sel2 svg {
+                flex: none;
+                width: 26px;
+                height: 26px;
+                stroke: var(--ink);
+                fill: none;
+                stroke-width: 2
+            }
+
+            .go {
+                display: block;
+                border: 0;
+                border-radius: 18px;
+                background: #4a6fb0;
+                color: #fff;
+                font: 700 clamp(28px,4vw,38px) Dosis,sans-serif;
+                text-transform: uppercase;
+                padding: 12px 34px;
+                cursor: pointer;
+                letter-spacing: .03em
+            }
+
+            .go:hover {
+                background: var(--navy)
+            }
+
+            .note {
+                font-size: 12px;
+                opacity: .7;
+                margin-top: 10px
+            }
+
+            @media (max-width: 900px) {
+                .bk {
+                    grid-template-columns:1fr
+                }
+            }
+
+            #m0:checked ~ .mb0 {
+                display: block
+            }
+
+            #m1:checked ~ .mb1 {
+                display: block
+            }
+
+            #m2:checked ~ .mb2 {
+                display: block
+            }
+
+            #m3:checked ~ .mb3 {
+                display: block
+            }
+
+            #m4:checked ~ .mb4 {
+                display: block
+            }
+        </style>
+    </head>
+    <body>
+        <div class="tagline">EYE CARE, BECAUSE WE CARE.</div>
+        <header>
+            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Homepage — EyeCare.html" id="top-bar" class="brand sm" aria-label="EyeCare home" style="width: 25%">
+                <img src="c:\Users\Cha_En\Downloads\EyeCare Website\images\logo.png" alt="EyeCare" style="width: 75%; height: auto">
+            </a>
+            <nav aria-label="Main">
+                <a class="link" href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\About Us — EyeCare.html">About</a>
+                <a class="link" href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Frames & Products — EyeCare.html">Frames</a>
+                <a class="link" href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Services — EyeCare.html">Services</a>
+                <a class="link" href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Contact Us — EyeCare.html">Contact Us</a>
+                    <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Frames & Products — EyeCare.html" aria-label="Search">
+                        <img class="ico" src="c:\Users\Cha_En\Downloads\EyeCare Website\images\search.png" alt="Search Icon" style="width: 100%">
+                    </a>
+                    <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Frames & Products — EyeCare.html" aria-label="Cart">
+                        <img class="ico" src="c:\Users\Cha_En\Downloads\EyeCare Website\images\cart.png" alt="Cart" style="width: 100%">
+                    </a>
+            </nav>
+        </header>
+        <main class="wrap">
+            <h1 class="pt">
+                Book your <span>appointment</span>
+            </h1>
+            <form class="bk" action="mailto:username@domain" method="post" enctype="text/plain">
+                <section>
+                    <h2>Select Date</h2>
+                    <div class="cal">
+                        <input type="radio" class="hid" name="mon" form="none" id="m0" checked aria-label="November 2026">
+                        <input type="radio" class="hid" name="mon" form="none" id="m1" aria-label="December 2026">
+                        <input type="radio" class="hid" name="mon" form="none" id="m2" aria-label="January 2027">
+                        <input type="radio" class="hid" name="mon" form="none" id="m3" aria-label="February 2027">
+                        <input type="radio" class="hid" name="mon" form="none" id="m4" aria-label="March 2027">
+                        <div class="mb mb0">
+                            <div class="ch">
+                                <span class="mv"></span>
+                                <span>November 2026</span>
+                                <label for="m1" class="mv">&#8250;</label>
+                            </div>
+                            <div class="cg">
+                                <div class="wd">SU</div>
+                                <div class="wd">MO</div>
+                                <div class="wd">TU</div>
+                                <div class="wd">WE</div>
+                                <div class="wd">TH</div>
+                                <div class="wd">FR</div>
+                                <div class="wd">SA</div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2026111" value="Nov 1, 2026" disabled>
+                                    <label for="d2026111" class="day ">1</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2026112" value="Nov 2, 2026" disabled>
+                                    <label for="d2026112" class="day ">2</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2026113" value="Nov 3, 2026" disabled>
+                                    <label for="d2026113" class="day ">3</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2026114" value="Nov 4, 2026" disabled>
+                                    <label for="d2026114" class="day ">4</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2026115" value="Nov 5, 2026" disabled>
+                                    <label for="d2026115" class="day ">5</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2026116" value="Nov 6, 2026" disabled>
+                                    <label for="d2026116" class="day ">6</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2026117" value="Nov 7, 2026" disabled>
+                                    <label for="d2026117" class="day ">7</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2026118" value="Nov 8, 2026" disabled>
+                                    <label for="d2026118" class="day ">8</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2026119" value="Nov 9, 2026" disabled>
+                                    <label for="d2026119" class="day ">9</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261110" value="Nov 10, 2026" disabled>
+                                    <label for="d20261110" class="day ">10</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261111" value="Nov 11, 2026" disabled>
+                                    <label for="d20261111" class="day ">11</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261112" value="Nov 12, 2026" disabled>
+                                    <label for="d20261112" class="day ">12</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261113" value="Nov 13, 2026" disabled>
+                                    <label for="d20261113" class="day ">13</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261114" value="Nov 14, 2026" disabled>
+                                    <label for="d20261114" class="day ">14</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261115" value="Nov 15, 2026" disabled>
+                                    <label for="d20261115" class="day ">15</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261116" value="Nov 16, 2026" disabled>
+                                    <label for="d20261116" class="day ">16</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261117" value="Nov 17, 2026" disabled>
+                                    <label for="d20261117" class="day ">17</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261118" value="Nov 18, 2026" disabled>
+                                    <label for="d20261118" class="day ">18</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261119" value="Nov 19, 2026" disabled>
+                                    <label for="d20261119" class="day ">19</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261120" value="Nov 20, 2026" disabled>
+                                    <label for="d20261120" class="day ">20</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261121" value="Nov 21, 2026" disabled>
+                                    <label for="d20261121" class="day ">21</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261122" value="Nov 22, 2026" disabled>
+                                    <label for="d20261122" class="day ">22</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261123" value="Nov 23, 2026" disabled>
+                                    <label for="d20261123" class="day ">23</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261124" value="Nov 24, 2026" disabled>
+                                    <label for="d20261124" class="day ">24</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261125" value="Nov 25, 2026" disabled>
+                                    <label for="d20261125" class="day ">25</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261126" value="Nov 26, 2026" disabled>
+                                    <label for="d20261126" class="day ">26</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261127" value="Nov 27, 2026" required>
+                                    <label for="d20261127" class="day partial">27</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261128" value="Nov 28, 2026" required>
+                                    <label for="d20261128" class="day pending">28</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261129" value="Nov 29, 2026" required>
+                                    <label for="d20261129" class="day free">29</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261130" value="Nov 30, 2026" required>
+                                    <label for="d20261130" class="day free">30</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb mb1">
+                            <div class="ch">
+                                <label for="m0" class="mv">&#8249;</label>
+                                <span>December 2026</span>
+                                <label for="m2" class="mv">&#8250;</label>
+                            </div>
+                            <div class="cg">
+                                <div class="wd">SU</div>
+                                <div class="wd">MO</div>
+                                <div class="wd">TU</div>
+                                <div class="wd">WE</div>
+                                <div class="wd">TH</div>
+                                <div class="wd">FR</div>
+                                <div class="wd">SA</div>
+                                <div></div>
+                                <div></div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2026121" value="Dec 1, 2026" required>
+                                    <label for="d2026121" class="day free">1</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2026122" value="Dec 2, 2026" required>
+                                    <label for="d2026122" class="day pending">2</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2026123" value="Dec 3, 2026" disabled>
+                                    <label for="d2026123" class="day booked">3</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2026124" value="Dec 4, 2026" required>
+                                    <label for="d2026124" class="day free">4</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2026125" value="Dec 5, 2026" required>
+                                    <label for="d2026125" class="day partial">5</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2026126" value="Dec 6, 2026" disabled>
+                                    <label for="d2026126" class="day booked">6</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2026127" value="Dec 7, 2026" required>
+                                    <label for="d2026127" class="day free">7</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2026128" value="Dec 8, 2026" required>
+                                    <label for="d2026128" class="day partial">8</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2026129" value="Dec 9, 2026" required>
+                                    <label for="d2026129" class="day pending">9</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261210" value="Dec 10, 2026" required>
+                                    <label for="d20261210" class="day free">10</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261211" value="Dec 11, 2026" required>
+                                    <label for="d20261211" class="day free">11</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261212" value="Dec 12, 2026" required>
+                                    <label for="d20261212" class="day pending">12</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261213" value="Dec 13, 2026" disabled>
+                                    <label for="d20261213" class="day booked">13</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261214" value="Dec 14, 2026" required>
+                                    <label for="d20261214" class="day free">14</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261215" value="Dec 15, 2026" required>
+                                    <label for="d20261215" class="day partial">15</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261216" value="Dec 16, 2026" disabled>
+                                    <label for="d20261216" class="day booked">16</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261217" value="Dec 17, 2026" required>
+                                    <label for="d20261217" class="day free">17</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261218" value="Dec 18, 2026" required>
+                                    <label for="d20261218" class="day partial">18</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261219" value="Dec 19, 2026" required>
+                                    <label for="d20261219" class="day pending">19</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261220" value="Dec 20, 2026" required>
+                                    <label for="d20261220" class="day free">20</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261221" value="Dec 21, 2026" required>
+                                    <label for="d20261221" class="day free">21</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261222" value="Dec 22, 2026" required>
+                                    <label for="d20261222" class="day pending">22</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261223" value="Dec 23, 2026" disabled>
+                                    <label for="d20261223" class="day booked">23</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261224" value="Dec 24, 2026" required>
+                                    <label for="d20261224" class="day free">24</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261225" value="Dec 25, 2026" required>
+                                    <label for="d20261225" class="day partial">25</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261226" value="Dec 26, 2026" disabled>
+                                    <label for="d20261226" class="day booked">26</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261227" value="Dec 27, 2026" required>
+                                    <label for="d20261227" class="day free">27</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261228" value="Dec 28, 2026" required>
+                                    <label for="d20261228" class="day partial">28</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261229" value="Dec 29, 2026" required>
+                                    <label for="d20261229" class="day pending">29</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261230" value="Dec 30, 2026" required>
+                                    <label for="d20261230" class="day free">30</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d20261231" value="Dec 31, 2026" required>
+                                    <label for="d20261231" class="day free">31</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb mb2">
+                            <div class="ch">
+                                <label for="m1" class="mv">&#8249;</label>
+                                <span>January 2027</span>
+                                <label for="m3" class="mv">&#8250;</label>
+                            </div>
+                            <div class="cg">
+                                <div class="wd">SU</div>
+                                <div class="wd">MO</div>
+                                <div class="wd">TU</div>
+                                <div class="wd">WE</div>
+                                <div class="wd">TH</div>
+                                <div class="wd">FR</div>
+                                <div class="wd">SA</div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202711" value="Jan 1, 2027" required>
+                                    <label for="d202711" class="day partial">1</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202712" value="Jan 2, 2027" disabled>
+                                    <label for="d202712" class="day booked">2</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202713" value="Jan 3, 2027" required>
+                                    <label for="d202713" class="day free">3</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202714" value="Jan 4, 2027" required>
+                                    <label for="d202714" class="day partial">4</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202715" value="Jan 5, 2027" required>
+                                    <label for="d202715" class="day pending">5</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202716" value="Jan 6, 2027" required>
+                                    <label for="d202716" class="day free">6</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202717" value="Jan 7, 2027" required>
+                                    <label for="d202717" class="day free">7</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202718" value="Jan 8, 2027" required>
+                                    <label for="d202718" class="day pending">8</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202719" value="Jan 9, 2027" disabled>
+                                    <label for="d202719" class="day booked">9</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027110" value="Jan 10, 2027" required>
+                                    <label for="d2027110" class="day free">10</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027111" value="Jan 11, 2027" required>
+                                    <label for="d2027111" class="day partial">11</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027112" value="Jan 12, 2027" disabled>
+                                    <label for="d2027112" class="day booked">12</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027113" value="Jan 13, 2027" required>
+                                    <label for="d2027113" class="day free">13</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027114" value="Jan 14, 2027" required>
+                                    <label for="d2027114" class="day partial">14</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027115" value="Jan 15, 2027" required>
+                                    <label for="d2027115" class="day pending">15</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027116" value="Jan 16, 2027" required>
+                                    <label for="d2027116" class="day free">16</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027117" value="Jan 17, 2027" required>
+                                    <label for="d2027117" class="day free">17</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027118" value="Jan 18, 2027" required>
+                                    <label for="d2027118" class="day pending">18</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027119" value="Jan 19, 2027" disabled>
+                                    <label for="d2027119" class="day booked">19</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027120" value="Jan 20, 2027" required>
+                                    <label for="d2027120" class="day free">20</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027121" value="Jan 21, 2027" required>
+                                    <label for="d2027121" class="day partial">21</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027122" value="Jan 22, 2027" disabled>
+                                    <label for="d2027122" class="day booked">22</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027123" value="Jan 23, 2027" required>
+                                    <label for="d2027123" class="day free">23</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027124" value="Jan 24, 2027" required>
+                                    <label for="d2027124" class="day partial">24</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027125" value="Jan 25, 2027" required>
+                                    <label for="d2027125" class="day pending">25</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027126" value="Jan 26, 2027" required>
+                                    <label for="d2027126" class="day free">26</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027127" value="Jan 27, 2027" required>
+                                    <label for="d2027127" class="day free">27</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027128" value="Jan 28, 2027" required>
+                                    <label for="d2027128" class="day pending">28</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027129" value="Jan 29, 2027" disabled>
+                                    <label for="d2027129" class="day booked">29</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027130" value="Jan 30, 2027" required>
+                                    <label for="d2027130" class="day free">30</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027131" value="Jan 31, 2027" required>
+                                    <label for="d2027131" class="day partial">31</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb mb3">
+                            <div class="ch">
+                                <label for="m2" class="mv">&#8249;</label>
+                                <span>February 2027</span>
+                                <label for="m4" class="mv">&#8250;</label>
+                            </div>
+                            <div class="cg">
+                                <div class="wd">SU</div>
+                                <div class="wd">MO</div>
+                                <div class="wd">TU</div>
+                                <div class="wd">WE</div>
+                                <div class="wd">TH</div>
+                                <div class="wd">FR</div>
+                                <div class="wd">SA</div>
+                                <div></div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202721" value="Feb 1, 2027" required>
+                                    <label for="d202721" class="day free">1</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202722" value="Feb 2, 2027" required>
+                                    <label for="d202722" class="day partial">2</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202723" value="Feb 3, 2027" disabled>
+                                    <label for="d202723" class="day booked">3</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202724" value="Feb 4, 2027" required>
+                                    <label for="d202724" class="day free">4</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202725" value="Feb 5, 2027" required>
+                                    <label for="d202725" class="day partial">5</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202726" value="Feb 6, 2027" required>
+                                    <label for="d202726" class="day pending">6</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202727" value="Feb 7, 2027" required>
+                                    <label for="d202727" class="day free">7</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202728" value="Feb 8, 2027" required>
+                                    <label for="d202728" class="day free">8</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202729" value="Feb 9, 2027" required>
+                                    <label for="d202729" class="day pending">9</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027210" value="Feb 10, 2027" disabled>
+                                    <label for="d2027210" class="day booked">10</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027211" value="Feb 11, 2027" required>
+                                    <label for="d2027211" class="day free">11</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027212" value="Feb 12, 2027" required>
+                                    <label for="d2027212" class="day partial">12</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027213" value="Feb 13, 2027" disabled>
+                                    <label for="d2027213" class="day booked">13</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027214" value="Feb 14, 2027" required>
+                                    <label for="d2027214" class="day free">14</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027215" value="Feb 15, 2027" required>
+                                    <label for="d2027215" class="day partial">15</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027216" value="Feb 16, 2027" required>
+                                    <label for="d2027216" class="day pending">16</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027217" value="Feb 17, 2027" required>
+                                    <label for="d2027217" class="day free">17</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027218" value="Feb 18, 2027" required>
+                                    <label for="d2027218" class="day free">18</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027219" value="Feb 19, 2027" required>
+                                    <label for="d2027219" class="day pending">19</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027220" value="Feb 20, 2027" disabled>
+                                    <label for="d2027220" class="day booked">20</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027221" value="Feb 21, 2027" required>
+                                    <label for="d2027221" class="day free">21</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027222" value="Feb 22, 2027" required>
+                                    <label for="d2027222" class="day partial">22</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027223" value="Feb 23, 2027" disabled>
+                                    <label for="d2027223" class="day booked">23</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027224" value="Feb 24, 2027" required>
+                                    <label for="d2027224" class="day free">24</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027225" value="Feb 25, 2027" required>
+                                    <label for="d2027225" class="day partial">25</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027226" value="Feb 26, 2027" required>
+                                    <label for="d2027226" class="day pending">26</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027227" value="Feb 27, 2027" required>
+                                    <label for="d2027227" class="day free">27</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027228" value="Feb 28, 2027" required>
+                                    <label for="d2027228" class="day free">28</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb mb4">
+                            <div class="ch">
+                                <label for="m3" class="mv">&#8249;</label>
+                                <span>March 2027</span>
+                                <span class="mv"></span>
+                            </div>
+                            <div class="cg">
+                                <div class="wd">SU</div>
+                                <div class="wd">MO</div>
+                                <div class="wd">TU</div>
+                                <div class="wd">WE</div>
+                                <div class="wd">TH</div>
+                                <div class="wd">FR</div>
+                                <div class="wd">SA</div>
+                                <div></div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202731" value="Mar 1, 2027" disabled>
+                                    <label for="d202731" class="day booked">1</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202732" value="Mar 2, 2027" required>
+                                    <label for="d202732" class="day free">2</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202733" value="Mar 3, 2027" required>
+                                    <label for="d202733" class="day partial">3</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202734" value="Mar 4, 2027" disabled>
+                                    <label for="d202734" class="day booked">4</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202735" value="Mar 5, 2027" required>
+                                    <label for="d202735" class="day free">5</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202736" value="Mar 6, 2027" required>
+                                    <label for="d202736" class="day partial">6</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202737" value="Mar 7, 2027" required>
+                                    <label for="d202737" class="day pending">7</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202738" value="Mar 8, 2027" required>
+                                    <label for="d202738" class="day free">8</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d202739" value="Mar 9, 2027" required>
+                                    <label for="d202739" class="day free">9</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027310" value="Mar 10, 2027" required>
+                                    <label for="d2027310" class="day pending">10</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027311" value="Mar 11, 2027" disabled>
+                                    <label for="d2027311" class="day booked">11</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027312" value="Mar 12, 2027" required>
+                                    <label for="d2027312" class="day free">12</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027313" value="Mar 13, 2027" required>
+                                    <label for="d2027313" class="day partial">13</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027314" value="Mar 14, 2027" disabled>
+                                    <label for="d2027314" class="day booked">14</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027315" value="Mar 15, 2027" required>
+                                    <label for="d2027315" class="day free">15</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027316" value="Mar 16, 2027" required>
+                                    <label for="d2027316" class="day partial">16</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027317" value="Mar 17, 2027" required>
+                                    <label for="d2027317" class="day pending">17</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027318" value="Mar 18, 2027" required>
+                                    <label for="d2027318" class="day free">18</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027319" value="Mar 19, 2027" required>
+                                    <label for="d2027319" class="day free">19</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027320" value="Mar 20, 2027" required>
+                                    <label for="d2027320" class="day pending">20</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027321" value="Mar 21, 2027" disabled>
+                                    <label for="d2027321" class="day booked">21</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027322" value="Mar 22, 2027" required>
+                                    <label for="d2027322" class="day free">22</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027323" value="Mar 23, 2027" required>
+                                    <label for="d2027323" class="day partial">23</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027324" value="Mar 24, 2027" disabled>
+                                    <label for="d2027324" class="day booked">24</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027325" value="Mar 25, 2027" required>
+                                    <label for="d2027325" class="day free">25</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027326" value="Mar 26, 2027" required>
+                                    <label for="d2027326" class="day partial">26</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027327" value="Mar 27, 2027" required>
+                                    <label for="d2027327" class="day pending">27</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027328" value="Mar 28, 2027" required>
+                                    <label for="d2027328" class="day free">28</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027329" value="Mar 29, 2027" required>
+                                    <label for="d2027329" class="day free">29</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027330" value="Mar 30, 2027" required>
+                                    <label for="d2027330" class="day pending">30</label>
+                                </div>
+                                <div>
+                                    <input type="radio" class="hid" name="Date" id="d2027331" value="Mar 31, 2027" disabled>
+                                    <label for="d2027331" class="day booked">31</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="leg">
+                        <span>
+                            <i style="background:#8a4a4f">19</i>Booked
+                        </span>
+                        <span>
+                            <i style="background:#8c8472">19</i>Pending
+                        </span>
+                        <span>
+                            <i style="background:#8a9a3a">19</i>Partially booked
+                        </span>
+                    </div>
+                </section>
+                <section>
+                    <h2>Select Time</h2>
+                    <div class="tg">
+                        <input type="radio" class="hid" name="Time" id="t0" value="9:00 AM" required>
+                        <label for="t0" class="tb">9:00 AM</label>
+                        <input type="radio" class="hid" name="Time" id="t1" value="10:00 AM" required>
+                        <label for="t1" class="tb">10:00 AM</label>
+                        <input type="radio" class="hid" name="Time" id="t2" value="11:00 AM" required>
+                        <label for="t2" class="tb">11:00 AM</label>
+                        <input type="radio" class="hid" name="Time" id="t3" value="12:00 PM" required>
+                        <label for="t3" class="tb">12:00 PM</label>
+                        <input type="radio" class="hid" name="Time" id="t4" value="1:00 PM" required>
+                        <label for="t4" class="tb">1:00 PM</label>
+                        <input type="radio" class="hid" name="Time" id="t5" value="2:00 PM" required>
+                        <label for="t5" class="tb">2:00 PM</label>
+                        <input type="radio" class="hid" name="Time" id="t6" value="3:00 PM" required>
+                        <label for="t6" class="tb">3:00 PM</label>
+                        <input type="radio" class="hid" name="Time" id="t7" value="4:00 PM" required>
+                        <label for="t7" class="tb">4:00 PM</label>
+                        <input type="radio" class="hid" name="Time" id="t8" value="9:30 AM" required>
+                        <label for="t8" class="tb">9:30 AM</label>
+                        <input type="radio" class="hid" name="Time" id="t9" value="10:30 AM" required>
+                        <label for="t9" class="tb">10:30 AM</label>
+                        <input type="radio" class="hid" name="Time" id="t10" value="11:30 AM" required>
+                        <label for="t10" class="tb">11:30 AM</label>
+                        <input type="radio" class="hid" name="Time" id="t11" value="12:30 PM" required>
+                        <label for="t11" class="tb">12:30 PM</label>
+                        <input type="radio" class="hid" name="Time" id="t12" value="1:30 PM" required>
+                        <label for="t12" class="tb">1:30 PM</label>
+                        <input type="radio" class="hid" name="Time" id="t13" value="2:30 PM" required>
+                        <label for="t13" class="tb">2:30 PM</label>
+                        <input type="radio" class="hid" name="Time" id="t14" value="3:30 PM" required>
+                        <label for="t14" class="tb">3:30 PM</label>
+                        <input type="radio" class="hid" name="Time" id="t15" value="4:30 PM" required>
+                        <label for="t15" class="tb">4:30 PM</label>
+                    </div>
+                </section>
+                <section class="reg">
+                    <label class="l">REGISTER</label>
+                    <input class="fi" name="Name" placeholder="Your name" aria-label="Your name" required minlength="2" autocomplete="name">
+                    <input class="fi" name="Phone" placeholder="09XXXXXXXXX" aria-label="Phone number" required pattern="(\+?63|0)9[0-9]{9}" title="Philippine mobile number, e.g. 09171234567 or +639171234567" inputmode="tel" autocomplete="tel">
+                    <div class="sel2">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="9" cy="8" r="6"/>
+                            <path d="M6.5 8l2 2 3-4"/>
+                        </svg>
+                        <select name="Service" aria-label="Select a service" required>
+                            <option value="">Select a service</option>
+                            <option>Eye Exam</option>
+                            <option>Prescription Update</option>
+                            <option>Frame Repair</option>
+                            <option>Contact Lens Fitting</option>
+                            <option>Eyewear Consultation</option>
+                        </select>
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 8l8 8 8-8"/>
+                        </svg>
+                    </div>
+                    <button class="go" type="submit">Book now!</button>
+                    <p class="note">Submitting opens your email app with the booking details addressed to EyeCare.</p>
+                </section>
+            </form>
+        </main>
+        <section class="about">
+            <div class="logo-wrap">
+                <img class="brand-lg" src="c:\Users\Cha_En\Downloads\EyeCare Website\images\logo.png" alt="EyeCare">
+            </div>
+            <div>
+                <h2>EYECARE</h2>
+                <h3>Eye care, because we care.</h3>
+                <p>EYECARE brings vision care and personal style together with eyewear, eye exams, prescription updates, and frame repairs—all in one place.</p>
+            </div>
+        </section>
+        <footer id="contact">
+            <div class="cols">
+                <div>
+                    <h4>Products</h4>
+                    <ul>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Frames & Products — EyeCare.html">Eyeglasses</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Frames & Products — EyeCare.html">Contact Lenses</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Frames & Products — EyeCare.html">Sunglasses</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Frames & Products — EyeCare.html">Eyewear Cases</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Frames & Products — EyeCare.html">Eye Solution</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Services — EyeCare.html">Eye Exam</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Services — EyeCare.html">Prescriptions</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Services — EyeCare.html">Frame Repairs</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Information</h4>
+                    <ul>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\About Us — EyeCare.html">About Us</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\About Us — EyeCare.html">Vision</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\About Us — EyeCare.html">Mission</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\FAQs — EyeCare.html">FAQs</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Site Map — EyeCare.html">Site Map</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact">
+                    <h4>Contact/Follow Us</h4>
+                    <ul>
+                        <li>
+                            <img src="c:\Users\Cha_En\Downloads\EyeCare Website\images\telephone.png" alt="Phone" style="width: 12%; height: auto">
+                            <a href="tel:+639000000000">+63 917 123 4567</a>
+                        </li>
+                        <li>
+                            <img src="c:\Users\Cha_En\Downloads\EyeCare Website\images\email.png" alt="Email" style="width: 12%; height: auto">
+                            <a href="mailto:username@domain">eyecareofficial@gmail.com</a>
+                        </li>
+                        <li>
+                            <img src="c:\Users\Cha_En\Downloads\EyeCare Website\images\location.png" alt="Address" style="width: 12%; height: auto">
+                            <span>Makati City, Metro Manila, Philippines</span>
+                        </li>
+                        <li>
+                            <img src="c:\Users\Cha_En\Downloads\EyeCare Website\images\domain.png" alt="Website" style="width: 12%; height: auto">
+                            <span>www.EyeCare.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copy">© 2026 EyeCare. All Rights Reserved.</p>
+        </footer>
+    </body>
+</html>

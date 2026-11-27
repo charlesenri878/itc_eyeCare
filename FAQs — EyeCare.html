@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>FAQs — EyeCare</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@500;700;800&family=Poppins:wght@400;500;600&display=swap">
+        <link rel="icon" type="image/x-icon" href="c:\Users\Cha_En\Downloads\EyeCare Website\images\small logo  (1).png">
+        <style>
+            :root {
+                --blue: #5fadd2;
+                --sky: #a3ccff;
+                --navy: #3b5ba5;
+                --ink: #111;
+                --bg: #fff;
+                --surface: #fff;
+                --foot-text: #fff;
+                --icon-filter: none;
+                box-sizing: border-box;
+                padding-top: env(safe-area-inset-top,0px);
+                padding-bottom: env(safe-area-inset-bottom,0px)
+            }
+
+            @media (prefers-color-scheme: dark) {
+                :root:not([data-theme="light"]) {
+                    --ink:#eef3f8;
+                    --bg: #0f1720;
+                    --surface: #0f1720;
+                    --sky: #2c4a73;
+                    --icon-filter: invert(1)
+                }
+            }
+
+            :root[data-theme="dark"] {
+                --ink: #eef3f8;
+                --bg: #0f1720;
+                --surface: #0f1720;
+                --sky: #2c4a73;
+                --icon-filter: invert(1)
+            }
+
+            html {
+                scroll-padding-top: env(safe-area-inset-top,0px);
+                scroll-behavior: smooth
+            }
+
+            *,*::before,*::after {
+                box-sizing: border-box
+            }
+
+            body {
+                margin: 0;
+                background: var(--bg);
+                color: var(--ink);
+                font-family: Poppins,system-ui,sans-serif;
+                line-height: 1.5
+            }
+
+            img {
+                max-width: 100%;
+                display: block
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none
+            }
+
+            a:focus-visible,button:focus-visible {
+                outline: 3px solid var(--navy);
+                outline-offset: 3px
+            }
+
+            .tagline {
+                background: var(--blue);
+                color: #fff;
+                text-align: center;
+                font-size: clamp(14px,2.2vw,20px);
+                padding: 8px 12px;
+                letter-spacing: .02em
+            }
+
+            header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+                padding: 10px clamp(16px,3vw,28px);
+                background: var(--surface);
+                position: sticky;
+                top: env(safe-area-inset-top,0px);
+                z-index: 5
+            }
+
+            .logo {
+                font-family: Dosis,sans-serif;
+                font-weight: 800;
+                line-height: 1;
+                background: linear-gradient(90deg,#5fd6c9,#4a8fc4 55%,#3b5ba5);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                display: inline-flex;
+                align-items: center
+            }
+
+            .logo.sm {
+                font-size: clamp(34px,5vw,46px)
+            }
+
+            .logo.lg {
+                font-size: clamp(64px,11vw,120px)
+            }
+
+            .logo svg {
+                width: .7em;
+                height: .7em;
+                margin: 0 .02em
+            }
+
+            nav {
+                display: flex;
+                align-items: center;
+                gap: clamp(12px,2.6vw,32px)
+            }
+
+            nav a.link {
+                font-family: Dosis,sans-serif;
+                font-weight: 700;
+                font-size: clamp(14px,1.8vw,18px);
+                text-transform: uppercase
+            }
+
+            nav a.link:hover {
+                color: var(--navy)
+            }
+
+            nav .ico {
+                width: 20px;
+                height: 20px;
+                filter: var(--icon-filter)
+            }
+
+            .brand img {
+                height: clamp(34px,5vw,48px);
+                width: auto
+            }
+
+            .brand-lg {
+                width: 100%;
+                max-width: 520px;
+                height: auto
+            }
+
+            .brand img,.brand-lg {
+                border-radius: 8px
+            }
+
+            .banner {
+                width: 100%;
+                height: clamp(180px,30vw,340px);
+                object-fit: cover
+            }
+
+            .frames {
+                padding: 18px 16px 28px;
+                text-align: center
+            }
+
+            .frames h2 {
+                font-family: Dosis,sans-serif;
+                font-weight: 700;
+                font-size: clamp(18px,2.6vw,24px);
+                margin: 0 0 6px;
+                text-transform: uppercase
+            }
+
+            .frame-row {
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                gap: clamp(8px,4vw,60px);
+                max-width: 1100px;
+                margin: 0 auto;
+                align-items: center
+            }
+
+            .frame-row img {
+                width: 100%;
+                height: auto;
+                mix-blend-mode: multiply
+            }
+
+            @media (prefers-color-scheme: dark) {
+                :root:not([data-theme="light"]) .frame-row img {
+                    mix-blend-mode:normal;
+                    background: #fff;
+                    border-radius: 12px;
+                    padding: 8px
+                }
+            }
+
+            .actions {
+                display: grid;
+                grid-template-columns: repeat(2,minmax(0,1fr));
+                gap: 24px;
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 28px 16px 40px;
+                text-align: center
+            }
+
+            .action {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0
+            }
+
+            .action img {
+                width: clamp(96px,16vw,140px);
+                height: auto;
+                margin-bottom: -4px
+            }
+
+            .btn {
+                display: inline-block;
+                background: var(--sky);
+                color: #fff;
+                font-family: Dosis,sans-serif;
+                font-weight: 700;
+                font-size: clamp(15px,2.2vw,20px);
+                text-transform: uppercase;
+                padding: 10px clamp(16px,4vw,40px);
+                text-shadow: 0 1px 2px rgba(0,0,0,.35);
+                transition: background .2s
+            }
+
+            .btn:hover {
+                background: var(--blue)
+            }
+
+            .about {
+                display: grid;
+                grid-template-columns: 1.15fr 1fr;
+                gap: clamp(16px,4vw,48px);
+                align-items: center;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 24px clamp(16px,4vw,36px) 48px
+            }
+
+            .about .logo-wrap {
+                display: flex;
+                justify-content: center
+            }
+
+            .about h2 {
+                font-family: Dosis,sans-serif;
+                font-weight: 800;
+                color: var(--blue);
+                font-size: clamp(40px,6vw,60px);
+                margin: 0;
+                line-height: 1
+            }
+
+            .about h3 {
+                font-size: clamp(16px,2vw,19px);
+                margin: 8px 0;
+                text-transform: uppercase;
+                font-weight: 600
+            }
+
+            .about p {
+                margin: 0;
+                text-align: justify;
+                font-size: clamp(15px,1.9vw,18px)
+            }
+
+            footer {
+                background: var(--blue);
+                color: #fff;
+                padding: 36px clamp(16px,4vw,40px) 18px;
+                text-shadow: 0 1px 2px rgba(0,0,0,.3)
+            }
+
+            .cols {
+                display: grid;
+                grid-template-columns: repeat(5,1fr);
+                gap: 24px;
+                max-width: 1200px;
+                margin: 0 auto
+            }
+
+            footer h4 {
+                font-family: Dosis,sans-serif;
+                font-weight: 700;
+                font-size: 18px;
+                margin: 0 0 12px;
+                text-transform: uppercase;
+                text-align: center
+            }
+
+            footer ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: grid;
+                gap: 8px;
+                text-align: center;
+                font-size: 14px
+            }
+
+            footer a:hover {
+                text-decoration: underline
+            }
+
+            .contact li {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                text-align: left
+            }
+
+            .contact img {
+                width: 24px;
+                height: 24px;
+                flex: none
+            }
+
+            .copy {
+                text-align: center;
+                font-size: 12px;
+                margin: 28px 0 0
+            }
+
+            @media (max-width: 860px) {
+                .cols {
+                    grid-template-columns:repeat(2,1fr)
+                }
+
+                .contact {
+                    grid-column: 1/-1
+                }
+
+                .contact ul {
+                    max-width: 300px;
+                    margin: 0 auto
+                }
+            }
+
+            @media (max-width: 640px) {
+                .about {
+                    grid-template-columns:1fr
+                }
+
+                .about p {
+                    text-align: left
+                }
+
+                nav a.link {
+                    display: none
+                }
+            }
+
+            .wrap {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 0 clamp(16px,3vw,32px)
+            }
+
+            .hid {
+                position: absolute;
+                opacity: 0;
+                pointer-events: none;
+                width: 1px;
+                height: 1px;
+                overflow: hidden
+            }
+
+            [hidden] {
+                display: none!important
+            }
+
+            .vh {
+                padding: 26px 0 8px;
+                text-align: center
+            }
+
+            .vh h1,.sel h2,.gh {
+                font-family: Dosis,sans-serif;
+                font-weight: 700;
+                font-size: clamp(24px,4.4vw,38px);
+                margin: 0 0 14px;
+                text-transform: uppercase;
+                letter-spacing: .04em
+            }
+
+            .va {
+                border: 1px solid var(--ink);
+                background: transparent;
+                color: var(--ink);
+                border-radius: 8px;
+                padding: 5px 20px;
+                font: 500 13px Poppins;
+                display: inline-block;
+                cursor: pointer
+            }
+
+            .va:hover {
+                background: var(--blue);
+                color: #fff;
+                border-color: var(--blue)
+            }
+
+            .hb {
+                background: linear-gradient(135deg,#5fadd2,#3b5ba5);
+                color: #fff;
+                padding: clamp(22px,4vw,44px) 0;
+                text-shadow: 0 2px 4px rgba(0,0,0,.25)
+            }
+
+            .hb h1 {
+                font-family: Dosis,sans-serif;
+                font-weight: 700;
+                font-size: clamp(34px,6vw,54px);
+                margin: 0 0 6px
+            }
+
+            .hb p {
+                margin: 0;
+                max-width: 640px;
+                font-size: clamp(16px,2.2vw,22px)
+            }
+
+            .fq {
+                padding: 26px 0 48px;
+                max-width: 860px;
+                margin: 0 auto
+            }
+
+            .chips {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                margin: 0 0 18px
+            }
+
+            .chip {
+                border: 1px solid var(--blue);
+                border-radius: 99px;
+                padding: 6px 16px;
+                font: 500 14px Poppins;
+                cursor: pointer
+            }
+
+            details {
+                border: 1px solid rgba(128,128,128,.45);
+                border-radius: 10px;
+                margin-bottom: 10px;
+                background: var(--surface)
+            }
+
+            summary {
+                cursor: pointer;
+                padding: 14px 18px;
+                font-weight: 600;
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                gap: 12px
+            }
+
+            summary::-webkit-details-marker {
+                display: none
+            }
+
+            summary::after {
+                content: "+";
+                font-size: 22px;
+                line-height: 1;
+                color: var(--navy)
+            }
+
+            details[open] summary::after {
+                content: "−"
+            }
+
+            details p {
+                margin: 0;
+                padding: 0 18px 16px;
+                line-height: 1.6
+            }
+
+            details a {
+                color: var(--navy);
+                text-decoration: underline
+            }
+
+            .more {
+                text-align: center;
+                margin-top: 28px
+            }
+
+            .more a {
+                display: inline-block;
+                background: var(--navy);
+                color: #fff;
+                border-radius: 10px;
+                padding: 10px 26px;
+                font: 600 15px Poppins
+            }
+
+            #fc-appt:checked ~ .chips .c-appt {
+                background: var(--blue);
+                color: #fff
+            }
+
+            #fc-appt:checked ~ .list .q:not(.c-appt) {
+                display: Appointments
+            }
+
+            #fc-eye:checked ~ .chips .c-eye {
+                background: var(--blue);
+                color: #fff
+            }
+
+            #fc-eye:checked ~ .list .q:not(.c-eye) {
+                display: Eyewear
+            }
+
+            #fc-ord:checked ~ .chips .c-ord {
+                background: var(--blue);
+                color: #fff
+            }
+
+            #fc-ord:checked ~ .list .q:not(.c-ord) {
+                display: Orders
+            }
+
+            #fc-all:checked ~ .chips .c-all {
+                background: var(--blue);
+                color: #fff
+            }
+        </style>
+    </head>
+    <body>
+        <div class="tagline">EYE CARE, BECAUSE WE CARE.</div>
+        <header>
+            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Homepage — EyeCare.html" id="top-bar" class="brand sm" aria-label="EyeCare home" style="width: 25%">
+                <img src="c:\Users\Cha_En\Downloads\EyeCare Website\images\logo.png" alt="EyeCare" style="width: 75%; height: auto">
+            </a>
+            <nav aria-label="Main">
+                <a class="link" href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\About Us — EyeCare.html">About</a>
+                <a class="link" href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Frames & Products — EyeCare.html">Frames</a>
+                <a class="link" href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Services — EyeCare.html">Services</a>
+                <a class="link" href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Contact Us — EyeCare.html">Contact Us</a>
+                    <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Frames & Products — EyeCare.html" aria-label="Search">
+                        <img class="ico" src="c:\Users\Cha_En\Downloads\EyeCare Website\images\search.png" alt="Search Icon" style="width: 100%">
+                    </a>
+                    <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Frames & Products — EyeCare.html" aria-label="Cart">
+                        <img class="ico" src="c:\Users\Cha_En\Downloads\EyeCare Website\images\cart.png" alt="Cart" style="width: 100%">
+                    </a>
+            </nav>
+        </header>
+        <section class="hb">
+            <div class="wrap">
+                <h1>FAQS</h1>
+                <p>Quick answers to common questions about our eye care, eyewear and orders.</p>
+            </div>
+        </section>
+        <main class="wrap">
+            <div class="fq">
+                <input type="radio" class="hid" name="fc" id="fc-all" checked aria-label="All">
+                <input type="radio" class="hid" name="fc" id="fc-('appt', 'Appointments')" aria-label="None">
+                <input type="radio" class="hid" name="fc" id="fc-('eye', 'Eyewear')" aria-label="None">
+                <input type="radio" class="hid" name="fc" id="fc-('ord', 'Orders')" aria-label="None">
+                <div class="chips">
+                    <label for="fc-all" class="chip c-all">All</label>
+                    <label for="fc-('appt', 'Appointments')" class="chip c-('appt', 'Appointments')">Appointments</label>
+                    <label for="fc-('eye', 'Eyewear')" class="chip c-('eye', 'Eyewear')">Eyewear</label>
+                    <label for="fc-('ord', 'Orders')" class="chip c-('ord', 'Orders')">Orders</label>
+                </div>
+                <div class="list">
+                    <details class="q c-appt">
+                        <summary>How do I book an eye exam?</summary>
+                        <p>
+                            Go to the <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Services — EyeCare.html">Services page</a>, choose a date and time, enter your name, phone number and service, then press Book Now.
+                        </p>
+                    </details>
+                    <details class="q c-appt">
+                        <summary>How often should I have my eyes checked?</summary>
+                        <p>Many people have an eye exam about once every one to two years, or sooner if your vision changes or you have eye discomfort. Our team can advise you based on your needs.</p>
+                    </details>
+                    <details class="q c-appt">
+                        <summary>Can I update my prescription?</summary>
+                        <p>Yes. Choose Prescription Update when you book, and our team will check your vision and update your prescription.</p>
+                    </details>
+                    <details class="q c-appt">
+                        <summary>What if I need to change or cancel my appointment?</summary>
+                        <p>
+                            Please <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Contact Us — EyeCare.html">contact us</a> as early as you can so we can free the slot for someone else and help you find a new time.
+                        </p>
+                    </details>
+                    <details class="q c-eye">
+                        <summary>How do I choose frames that suit me?</summary>
+                        <p>
+                            Each frame on our <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Frames & Products — EyeCare.html">Frames page</a> lists the face shapes it works best with. You can also visit us and our friendly team will help you find a fit and a style you like.
+                        </p>
+                    </details>
+                    <details class="q c-eye">
+                        <summary>Do you repair frames?</summary>
+                        <p>Yes. Book a Frame Repair service or visit us with your frames, and we will check what can be fixed.</p>
+                    </details>
+                    <details class="q c-eye">
+                        <summary>Do you sell contact lenses and eye drops?</summary>
+                        <p>
+                            Yes. We carry contact lenses, lens solutions and lubricant eye drops, along with eyeglasses, sunglasses and eyewear cases. <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Frames & Products — EyeCare.html">Browse contact lenses</a>.
+                        </p>
+                    </details>
+                    <details class="q c-ord">
+                        <summary>How do I buy something?</summary>
+                        <p>Press Purchase on any product to add it to your cart. Open the cart from the shopping cart icon to review your items and check out.</p>
+                    </details>
+                    <details class="q c-ord">
+                        <summary>How much is shipping?</summary>
+                        <p>Shipping is ₱ 100, and it is free for orders of ₱ 2,000 and up.</p>
+                    </details>
+                    <details class="q c-ord">
+                        <summary>Do you have promo codes?</summary>
+                        <p>Promo codes can be entered in the Order Summary on the cart page. Follow us for current offers.</p>
+                    </details>
+                </div>
+                <div class="more">
+                    <p>Still need help?</p>
+                    <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Contact Us — EyeCare.html">Contact us</a>
+                </div>
+            </div>
+        </main>
+        <section class="about">
+            <div class="logo-wrap">
+                <img class="brand-lg" src="c:\Users\Cha_En\Downloads\EyeCare Website\images\logo.png" alt="EyeCare">
+            </div>
+            <div>
+                <h2>EYECARE</h2>
+                <h3>Eye care, because we care.</h3>
+                <p>EYECARE brings vision care and personal style together with eyewear, eye exams, prescription updates, and frame repairs—all in one place.</p>
+            </div>
+        </section>
+        <footer id="contact">
+            <div class="cols">
+                <div>
+                    <h4>Products</h4>
+                    <ul>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Frames & Products — EyeCare.html">Eyeglasses</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Frames & Products — EyeCare.html">Contact Lenses</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Frames & Products — EyeCare.html">Sunglasses</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Frames & Products — EyeCare.html">Eyewear Cases</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Frames & Products — EyeCare.html">Eye Solution</a>
+                        </li>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Services — EyeCare.html">Eye Exam</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Services — EyeCare.html">Prescriptions</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Services — EyeCare.html">Frame Repairs</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Information</h4>
+                    <ul>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\About Us — EyeCare.html">About Us</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\About Us — EyeCare.html">Vision</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\About Us — EyeCare.html">Mission</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\FAQs — EyeCare.html">FAQs</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Site Map — EyeCare.html">Site Map</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact">
+                    <h4>Contact/Follow Us</h4>
+                    <ul>
+                        <li>
+                            <img src="c:\Users\Cha_En\Downloads\EyeCare Website\images\telephone.png" alt="Phone" style="width: 12%; height: auto">
+                            <a href="tel:+639000000000">+63 917 123 4567</a>
+                        </li>
+                        <li>
+                            <img src="c:\Users\Cha_En\Downloads\EyeCare Website\images\email.png" alt="Email" style="width: 12%; height: auto">
+                            <a href="mailto:username@domain">eyecareofficial@gmail.com</a>
+                        </li>
+                        <li>
+                            <img src="c:\Users\Cha_En\Downloads\EyeCare Website\images\location.png" alt="Address" style="width: 12%; height: auto">
+                            <span>Makati City, Metro Manila, Philippines</span>
+                        </li>
+                        <li>
+                            <img src="c:\Users\Cha_En\Downloads\EyeCare Website\images\domain.png" alt="Website" style="width: 12%; height: auto">
+                            <span>www.EyeCare.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copy">© 2026 EyeCare. All Rights Reserved.</p>
+        </footer>
+    </body>
+</html>

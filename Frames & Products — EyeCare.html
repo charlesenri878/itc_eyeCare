@@ -1,0 +1,3322 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <title>Frames &amp; Products — EyeCare</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@500;700;800&family=Poppins:wght@400;500;600&display=swap">
+        <link rel="icon" type="image/x-icon" href="c:\Users\Cha_En\Downloads\EyeCare Website\images\small logo  (1).png">
+        <style>
+            :root {
+                --blue: #5fadd2;
+                --sky: #a3ccff;
+                --navy: #3b5ba5;
+                --ink: #111;
+                --bg: #fff;
+                --surface: #fff;
+                --foot-text: #fff;
+                --icon-filter: none;
+                box-sizing: border-box;
+                padding-top: env(safe-area-inset-top,0px);
+                padding-bottom: env(safe-area-inset-bottom,0px)
+            }
+
+            @media (prefers-color-scheme: dark) {
+                :root:not([data-theme="light"]) {
+                    --ink:#eef3f8;
+                    --bg: #0f1720;
+                    --surface: #0f1720;
+                    --sky: #2c4a73;
+                    --icon-filter: invert(1)
+                }
+            }
+
+            :root[data-theme="dark"] {
+                --ink: #eef3f8;
+                --bg: #0f1720;
+                --surface: #0f1720;
+                --sky: #2c4a73;
+                --icon-filter: invert(1)
+            }
+
+            html {
+                scroll-padding-top: env(safe-area-inset-top,0px);
+                scroll-behavior: smooth
+            }
+
+            *,*::before,*::after {
+                box-sizing: border-box
+            }
+
+            body {
+                margin: 0;
+                background: var(--bg);
+                color: var(--ink);
+                font-family: Poppins,system-ui,sans-serif;
+                line-height: 1.5
+            }
+
+            img {
+                max-width: 100%;
+                display: block
+            }
+
+            a {
+                color: inherit;
+                text-decoration: none
+            }
+
+            a:focus-visible,button:focus-visible {
+                outline: 3px solid var(--navy);
+                outline-offset: 3px
+            }
+
+            .tagline {
+                background: var(--blue);
+                color: #fff;
+                text-align: center;
+                font-size: clamp(14px,2.2vw,20px);
+                padding: 8px 12px;
+                letter-spacing: .02em
+            }
+
+            header {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 16px;
+                padding: 10px clamp(16px,3vw,28px);
+                background: var(--surface);
+                position: sticky;
+                top: env(safe-area-inset-top,0px);
+                z-index: 5
+            }
+
+            .logo {
+                font-family: Dosis,sans-serif;
+                font-weight: 800;
+                line-height: 1;
+                background: linear-gradient(90deg,#5fd6c9,#4a8fc4 55%,#3b5ba5);
+                -webkit-background-clip: text;
+                background-clip: text;
+                color: transparent;
+                display: inline-flex;
+                align-items: center
+            }
+
+            .logo.sm {
+                font-size: clamp(34px,5vw,46px)
+            }
+
+            .logo.lg {
+                font-size: clamp(64px,11vw,120px)
+            }
+
+            .logo svg {
+                width: .7em;
+                height: .7em;
+                margin: 0 .02em
+            }
+
+            nav {
+                display: flex;
+                align-items: center;
+                gap: clamp(12px,2.6vw,32px)
+            }
+
+            nav a.link {
+                font-family: Dosis,sans-serif;
+                font-weight: 700;
+                font-size: clamp(14px,1.8vw,18px);
+                text-transform: uppercase
+            }
+
+            nav a.link:hover {
+                color: var(--navy)
+            }
+
+            nav .ico {
+                width: 20px;
+                height: 20px;
+                filter: var(--icon-filter)
+            }
+
+            .brand img {
+                height: clamp(34px,5vw,48px);
+                width: auto
+            }
+
+            .brand-lg {
+                width: 100%;
+                max-width: 520px;
+                height: auto
+            }
+
+            .brand img,.brand-lg {
+                border-radius: 8px
+            }
+
+            .banner {
+                width: 100%;
+                height: clamp(180px,30vw,340px);
+                object-fit: cover
+            }
+
+            .frames {
+                padding: 18px 16px 28px;
+                text-align: center
+            }
+
+            .frames h2 {
+                font-family: Dosis,sans-serif;
+                font-weight: 700;
+                font-size: clamp(18px,2.6vw,24px);
+                margin: 0 0 6px;
+                text-transform: uppercase
+            }
+
+            .frame-row {
+                display: grid;
+                grid-template-columns: repeat(3,1fr);
+                gap: clamp(8px,4vw,60px);
+                max-width: 1100px;
+                margin: 0 auto;
+                align-items: center
+            }
+
+            .frame-row img {
+                width: 100%;
+                height: auto;
+                mix-blend-mode: multiply
+            }
+
+            @media (prefers-color-scheme: dark) {
+                :root:not([data-theme="light"]) .frame-row img {
+                    mix-blend-mode:normal;
+                    background: #fff;
+                    border-radius: 12px;
+                    padding: 8px
+                }
+            }
+
+            .actions {
+                display: grid;
+                grid-template-columns: repeat(2,minmax(0,1fr));
+                gap: 24px;
+                max-width: 900px;
+                margin: 0 auto;
+                padding: 28px 16px 40px;
+                text-align: center
+            }
+
+            .action {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0
+            }
+
+            .action img {
+                width: clamp(96px,16vw,140px);
+                height: auto;
+                margin-bottom: -4px
+            }
+
+            .btn {
+                display: inline-block;
+                background: var(--sky);
+                color: #fff;
+                font-family: Dosis,sans-serif;
+                font-weight: 700;
+                font-size: clamp(15px,2.2vw,20px);
+                text-transform: uppercase;
+                padding: 10px clamp(16px,4vw,40px);
+                text-shadow: 0 1px 2px rgba(0,0,0,.35);
+                transition: background .2s
+            }
+
+            .btn:hover {
+                background: var(--blue)
+            }
+
+            .about {
+                display: grid;
+                grid-template-columns: 1.15fr 1fr;
+                gap: clamp(16px,4vw,48px);
+                align-items: center;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 24px clamp(16px,4vw,36px) 48px
+            }
+
+            .about .logo-wrap {
+                display: flex;
+                justify-content: center
+            }
+
+            .about h2 {
+                font-family: Dosis,sans-serif;
+                font-weight: 800;
+                color: var(--blue);
+                font-size: clamp(40px,6vw,60px);
+                margin: 0;
+                line-height: 1
+            }
+
+            .about h3 {
+                font-size: clamp(16px,2vw,19px);
+                margin: 8px 0;
+                text-transform: uppercase;
+                font-weight: 600
+            }
+
+            .about p {
+                margin: 0;
+                text-align: justify;
+                font-size: clamp(15px,1.9vw,18px)
+            }
+
+            footer {
+                background: var(--blue);
+                color: #fff;
+                padding: 36px clamp(16px,4vw,40px) 18px;
+                text-shadow: 0 1px 2px rgba(0,0,0,.3)
+            }
+
+            .cols {
+                display: grid;
+                grid-template-columns: repeat(5,1fr);
+                gap: 24px;
+                max-width: 1200px;
+                margin: 0 auto
+            }
+
+            footer h4 {
+                font-family: Dosis,sans-serif;
+                font-weight: 700;
+                font-size: 18px;
+                margin: 0 0 12px;
+                text-transform: uppercase;
+                text-align: center
+            }
+
+            footer ul {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+                display: grid;
+                gap: 8px;
+                text-align: center;
+                font-size: 14px
+            }
+
+            footer a:hover {
+                text-decoration: underline
+            }
+
+            .contact li {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                text-align: left
+            }
+
+            .contact img {
+                width: 24px;
+                height: 24px;
+                flex: none
+            }
+
+            .copy {
+                text-align: center;
+                font-size: 12px;
+                margin: 28px 0 0
+            }
+
+            @media (max-width: 860px) {
+                .cols {
+                    grid-template-columns:repeat(2,1fr)
+                }
+
+                .contact {
+                    grid-column: 1/-1
+                }
+
+                .contact ul {
+                    max-width: 300px;
+                    margin: 0 auto
+                }
+            }
+
+            @media (max-width: 640px) {
+                .about {
+                    grid-template-columns:1fr
+                }
+
+                .about p {
+                    text-align: left
+                }
+
+                nav a.link {
+                    display: none
+                }
+            }
+
+            .wrap {
+                max-width: 1100px;
+                margin: 0 auto;
+                padding: 0 clamp(16px,3vw,32px)
+            }
+
+            .hid {
+                position: absolute;
+                opacity: 0;
+                pointer-events: none;
+                width: 1px;
+                height: 1px;
+                overflow: hidden
+            }
+
+            [hidden] {
+                display: none!important
+            }
+
+            .vh {
+                padding: 26px 0 8px;
+                text-align: center
+            }
+
+            .vh h1,.sel h2,.gh {
+                font-family: Dosis,sans-serif;
+                font-weight: 700;
+                font-size: clamp(24px,4.4vw,38px);
+                margin: 0 0 14px;
+                text-transform: uppercase;
+                letter-spacing: .04em
+            }
+
+            .va {
+                border: 1px solid var(--ink);
+                background: transparent;
+                color: var(--ink);
+                border-radius: 8px;
+                padding: 5px 20px;
+                font: 500 13px Poppins;
+                display: inline-block;
+                cursor: pointer
+            }
+
+            .va:hover {
+                background: var(--blue);
+                color: #fff;
+                border-color: var(--blue)
+            }
+
+            .hb {
+                background: linear-gradient(135deg,#5fadd2,#3b5ba5);
+                color: #fff;
+                padding: clamp(22px,4vw,44px) 0;
+                text-shadow: 0 2px 4px rgba(0,0,0,.25)
+            }
+
+            .hb h1 {
+                font-family: Dosis,sans-serif;
+                font-weight: 700;
+                font-size: clamp(34px,6vw,54px);
+                margin: 0 0 6px
+            }
+
+            .hb p {
+                margin: 0;
+                max-width: 640px;
+                font-size: clamp(16px,2.2vw,22px)
+            }
+
+            .i-eyeframes0 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Sadie.png")
+            }
+
+            .i-eyeframes1 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Arden.png")
+            }
+
+            .i-eyeframes2 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Octavio.png")
+            }
+
+            .i-eyeframes3 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Holly.png")
+            }
+
+            .i-eyeframes4 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Georgie.png")
+            }
+
+            .i-eyeframes5 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Drew.png")
+            }
+
+            .i-lenses0 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/NewLook.png")
+            }
+
+            .i-lenses1 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Air Optix.png")
+            }
+
+            .i-lenses2 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Freshlook.png")
+            }
+
+            .i-lenses3 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Dailies.png")
+            }
+
+            .i-lenses4 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Newlook (2).png")
+            }
+
+            .i-lenses5 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Precision 1.png")            
+            }
+
+            .i-sunglasses0 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Cleo.png")
+            }
+
+            .i-sunglasses1 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Soren.png")
+            }
+
+            .i-sunglasses2 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Paloma.png")
+            }
+
+            .i-sunglasses3 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Dane.png")
+            }
+
+            .i-sunglasses4 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Triton.png")
+            }
+
+            .i-sunglasses5 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Luca.png")
+            }
+
+            .i-cases0 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Simplicity.png")
+            }
+
+            .i-cases1 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Simplicity (2).png")
+            }
+
+            .i-cases2 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/AtelierPall.png")
+            }
+
+            .i-cases3 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/MetroSunnies.png")
+            }
+
+            .i-cases4 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Simplicity (3).png")
+            }
+
+            .i-cases5 {
+               background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Levenger.png")
+            }
+
+            .i-solution0 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/AquaSoft Lens.png")
+            }
+
+            .i-solution1 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Refresh Daily.png")
+            }
+
+            .i-solution2 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Rohto Aqua.png")
+            }
+
+            .i-solution3 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Thera Tears.png")
+            }
+
+            .i-solution4 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/SuperEyes.png")
+            }
+
+            .i-solution5 {
+                background-image: url("c:/Users/Cha_En/Downloads/EyeCare Website/images/Bausch & Lomb.png")
+            }
+
+            body:has(#cb-eyeframes0:checked) #row-eyeframes0 {
+                display: grid
+            }
+
+            body:has(#cb-eyeframes0:checked) .p-eyeframes0 .a {
+                display: none
+            }
+
+            body:has(#cb-eyeframes0:checked) .p-eyeframes0 .b {
+                display: inline
+            }
+
+            body:has(#cb-eyeframes1:checked) #row-eyeframes1 {
+                display: grid
+            }
+
+            body:has(#cb-eyeframes1:checked) .p-eyeframes1 .a {
+                display: none
+            }
+
+            body:has(#cb-eyeframes1:checked) .p-eyeframes1 .b {
+                display: inline
+            }
+
+            body:has(#cb-eyeframes2:checked) #row-eyeframes2 {
+                display: grid
+            }
+
+            body:has(#cb-eyeframes2:checked) .p-eyeframes2 .a {
+                display: none
+            }
+
+            body:has(#cb-eyeframes2:checked) .p-eyeframes2 .b {
+                display: inline
+            }
+
+            body:has(#cb-eyeframes3:checked) #row-eyeframes3 {
+                display: grid
+            }
+
+            body:has(#cb-eyeframes3:checked) .p-eyeframes3 .a {
+                display: none
+            }
+
+            body:has(#cb-eyeframes3:checked) .p-eyeframes3 .b {
+                display: inline
+            }
+
+            body:has(#cb-eyeframes4:checked) #row-eyeframes4 {
+                display: grid
+            }
+
+            body:has(#cb-eyeframes4:checked) .p-eyeframes4 .a {
+                display: none
+            }
+
+            body:has(#cb-eyeframes4:checked) .p-eyeframes4 .b {
+                display: inline
+            }
+
+            body:has(#cb-eyeframes5:checked) #row-eyeframes5 {
+                display: grid
+            }
+
+            body:has(#cb-eyeframes5:checked) .p-eyeframes5 .a {
+                display: none
+            }
+
+            body:has(#cb-eyeframes5:checked) .p-eyeframes5 .b {
+                display: inline
+            }
+
+            body:has(#cb-lenses0:checked) #row-lenses0 {
+                display: grid
+            }
+
+            body:has(#cb-lenses0:checked) .p-lenses0 .a {
+                display: none
+            }
+
+            body:has(#cb-lenses0:checked) .p-lenses0 .b {
+                display: inline
+            }
+
+            body:has(#cb-lenses1:checked) #row-lenses1 {
+                display: grid
+            }
+
+            body:has(#cb-lenses1:checked) .p-lenses1 .a {
+                display: none
+            }
+
+            body:has(#cb-lenses1:checked) .p-lenses1 .b {
+                display: inline
+            }
+
+            body:has(#cb-lenses2:checked) #row-lenses2 {
+                display: grid
+            }
+
+            body:has(#cb-lenses2:checked) .p-lenses2 .a {
+                display: none
+            }
+
+            body:has(#cb-lenses2:checked) .p-lenses2 .b {
+                display: inline
+            }
+
+            body:has(#cb-lenses3:checked) #row-lenses3 {
+                display: grid
+            }
+
+            body:has(#cb-lenses3:checked) .p-lenses3 .a {
+                display: none
+            }
+
+            body:has(#cb-lenses3:checked) .p-lenses3 .b {
+                display: inline
+            }
+
+            body:has(#cb-lenses4:checked) #row-lenses4 {
+                display: grid
+            }
+
+            body:has(#cb-lenses4:checked) .p-lenses4 .a {
+                display: none
+            }
+
+            body:has(#cb-lenses4:checked) .p-lenses4 .b {
+                display: inline
+            }
+
+            body:has(#cb-lenses5:checked) #row-lenses5 {
+                display: grid
+            }
+
+            body:has(#cb-lenses5:checked) .p-lenses5 .a {
+                display: none
+            }
+
+            body:has(#cb-lenses5:checked) .p-lenses5 .b {
+                display: inline
+            }
+
+            body:has(#cb-sunglasses0:checked) #row-sunglasses0 {
+                display: grid
+            }
+
+            body:has(#cb-sunglasses0:checked) .p-sunglasses0 .a {
+                display: none
+            }
+
+            body:has(#cb-sunglasses0:checked) .p-sunglasses0 .b {
+                display: inline
+            }
+
+            body:has(#cb-sunglasses1:checked) #row-sunglasses1 {
+                display: grid
+            }
+
+            body:has(#cb-sunglasses1:checked) .p-sunglasses1 .a {
+                display: none
+            }
+
+            body:has(#cb-sunglasses1:checked) .p-sunglasses1 .b {
+                display: inline
+            }
+
+            body:has(#cb-sunglasses2:checked) #row-sunglasses2 {
+                display: grid
+            }
+
+            body:has(#cb-sunglasses2:checked) .p-sunglasses2 .a {
+                display: none
+            }
+
+            body:has(#cb-sunglasses2:checked) .p-sunglasses2 .b {
+                display: inline
+            }
+
+            body:has(#cb-sunglasses3:checked) #row-sunglasses3 {
+                display: grid
+            }
+
+            body:has(#cb-sunglasses3:checked) .p-sunglasses3 .a {
+                display: none
+            }
+
+            body:has(#cb-sunglasses3:checked) .p-sunglasses3 .b {
+                display: inline
+            }
+
+            body:has(#cb-sunglasses4:checked) #row-sunglasses4 {
+                display: grid
+            }
+
+            body:has(#cb-sunglasses4:checked) .p-sunglasses4 .a {
+                display: none
+            }
+
+            body:has(#cb-sunglasses4:checked) .p-sunglasses4 .b {
+                display: inline
+            }
+
+            body:has(#cb-sunglasses5:checked) #row-sunglasses5 {
+                display: grid
+            }
+
+            body:has(#cb-sunglasses5:checked) .p-sunglasses5 .a {
+                display: none
+            }
+
+            body:has(#cb-sunglasses5:checked) .p-sunglasses5 .b {
+                display: inline
+            }
+
+            body:has(#cb-cases0:checked) #row-cases0 {
+                display: grid
+            }
+
+            body:has(#cb-cases0:checked) .p-cases0 .a {
+                display: none
+            }
+
+            body:has(#cb-cases0:checked) .p-cases0 .b {
+                display: inline
+            }
+
+            body:has(#cb-cases1:checked) #row-cases1 {
+                display: grid
+            }
+
+            body:has(#cb-cases1:checked) .p-cases1 .a {
+                display: none
+            }
+
+            body:has(#cb-cases1:checked) .p-cases1 .b {
+                display: inline
+            }
+
+            body:has(#cb-cases2:checked) #row-cases2 {
+                display: grid
+            }
+
+            body:has(#cb-cases2:checked) .p-cases2 .a {
+                display: none
+            }
+
+            body:has(#cb-cases2:checked) .p-cases2 .b {
+                display: inline
+            }
+
+            body:has(#cb-cases3:checked) #row-cases3 {
+                display: grid
+            }
+
+            body:has(#cb-cases3:checked) .p-cases3 .a {
+                display: none
+            }
+
+            body:has(#cb-cases3:checked) .p-cases3 .b {
+                display: inline
+            }
+
+            body:has(#cb-cases4:checked) #row-cases4 {
+                display: grid
+            }
+
+            body:has(#cb-cases4:checked) .p-cases4 .a {
+                display: none
+            }
+
+            body:has(#cb-cases4:checked) .p-cases4 .b {
+                display: inline
+            }
+
+            body:has(#cb-cases5:checked) #row-cases5 {
+                display: grid
+            }
+
+            body:has(#cb-cases5:checked) .p-cases5 .a {
+                display: none
+            }
+
+            body:has(#cb-cases5:checked) .p-cases5 .b {
+                display: inline
+            }
+
+            body:has(#cb-solution0:checked) #row-solution0 {
+                display: grid
+            }
+
+            body:has(#cb-solution0:checked) .p-solution0 .a {
+                display: none
+            }
+
+            body:has(#cb-solution0:checked) .p-solution0 .b {
+                display: inline
+            }
+
+            body:has(#cb-solution1:checked) #row-solution1 {
+                display: grid
+            }
+
+            body:has(#cb-solution1:checked) .p-solution1 .a {
+                display: none
+            }
+
+            body:has(#cb-solution1:checked) .p-solution1 .b {
+                display: inline
+            }
+
+            body:has(#cb-solution2:checked) #row-solution2 {
+                display: grid
+            }
+
+            body:has(#cb-solution2:checked) .p-solution2 .a {
+                display: none
+            }
+
+            body:has(#cb-solution2:checked) .p-solution2 .b {
+                display: inline
+            }
+
+            body:has(#cb-solution3:checked) #row-solution3 {
+                display: grid
+            }
+
+            body:has(#cb-solution3:checked) .p-solution3 .a {
+                display: none
+            }
+
+            body:has(#cb-solution3:checked) .p-solution3 .b {
+                display: inline
+            }
+
+            body:has(#cb-solution4:checked) #row-solution4 {
+                display: grid
+            }
+
+            body:has(#cb-solution4:checked) .p-solution4 .a {
+                display: none
+            }
+
+            body:has(#cb-solution4:checked) .p-solution4 .b {
+                display: inline
+            }
+
+            body:has(#cb-solution5:checked) #row-solution5 {
+                display: grid
+            }
+
+            body:has(#cb-solution5:checked) .p-solution5 .a {
+                display: none
+            }
+
+            body:has(#cb-solution5:checked) .p-solution5 .b {
+                display: inline
+            }
+
+            body {
+                counter-reset: items total
+            }
+
+            .cb:checked {
+                counter-increment: items 1 total var(--p)
+            }
+
+            .badge {
+                position: absolute;
+                top: -8px;
+                right: -10px;
+                background: var(--navy);
+                color: #fff;
+                font: 600 11px Poppins;
+                border-radius: 99px;
+                min-width: 18px;
+                height: 18px;
+                display: none;
+                place-items: center;
+                padding: 0 4px
+            }
+
+            .badge::after {
+                content: counter(items)
+            }
+
+            body:has(.cb:checked) .badge {
+                display: grid
+            }
+
+            .cartlink {
+                position: relative;
+                display: inline-flex
+            }
+
+            .amt::after {
+                content: "₱ " counter(total) ".00"
+            }
+
+            .sel {
+                padding: 26px 0 10px;
+                text-align: center;
+                max-width: 1100px;
+                margin: 0 auto;
+                padding-left: 16px;
+                padding-right: 16px
+            }
+
+            .car {
+                display: flex;
+                align-items: center;
+                gap: 8px
+            }
+
+            .view {
+                flex: 1;
+                overflow: hidden;
+                padding: 4px
+            }
+
+            .track {
+                display: flex;
+                transition: transform .45s ease
+            }
+
+            .pg {
+                flex: 0 0 100%;
+                display: grid;
+                grid-template-columns: repeat(3,minmax(0,1fr));
+                gap: 16px
+            }
+
+            .rd:nth-of-type(2):checked ~ .view .track {
+                transform: translateX(-100%)
+            }
+
+            .rd:nth-of-type(1):checked ~ .arrow.l,.rd:nth-of-type(2):checked ~ .arrow.r {
+                opacity: .3
+            }
+
+            .arrow {
+                flex: none;
+                width: 34px;
+                height: 34px;
+                border-radius: 50%;
+                background: var(--blue);
+                color: #fff;
+                cursor: pointer;
+                display: grid;
+                place-items: center;
+                font-size: 20px;
+                line-height: 1;
+                user-select: none
+            }
+
+            .arrow:hover {
+                background: var(--navy)
+            }
+
+            .card {
+                border: 1.5px solid var(--ink);
+                border-radius: 10px;
+                padding: 14px 12px;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                background: var(--surface);
+                min-width: 0
+            }
+
+            .pic {
+                height: 140px;
+                display: grid;
+                place-items: center;
+                background: #fff;
+                border-radius: 8px;
+                padding: 6px
+            }
+
+            .im {
+                width: 100%;
+                height: 128px;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center
+            }
+
+            .card h3 {
+                font-size: 14px;
+                margin: 10px 0 6px;
+                font-weight: 500
+            }
+
+            .card h3 b {
+                font-weight: 600
+            }
+
+            .card ul {
+                list-style: none;
+                margin: 0 0 10px;
+                padding: 0;
+                text-align: left;
+                font-size: 13px;
+                flex: 1
+            }
+
+            .pbtn {
+                border: 1px solid var(--ink);
+                border-radius: 8px;
+                padding: 5px 20px;
+                font: 500 13px Poppins;
+                cursor: pointer;
+                align-self: center;
+                display: inline-block
+            }
+
+            .pbtn:hover {
+                background: var(--blue);
+                color: #fff;
+                border-color: var(--blue)
+            }
+
+            .pbtn .b {
+                display: none
+            }
+
+            .vabox {
+                margin: 14px 0 8px
+            }
+
+            .catalog,#cart {
+                display: none
+            }
+
+            .catalog:target,.catalog:has(.grp:target),#cart:target {
+                display: block
+            }
+
+            .grp {
+                display: none
+            }
+
+            .catalog:target .grp,.grp:target {
+                display: block
+            }
+
+            body:has(.catalog:target) #selections,body:has(.grp:target) #selections,body:has(#cart:target) #selections {
+                display: none
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill,minmax(230px,1fr));
+                gap: 16px;
+                padding: 8px 0 30px
+            }
+
+            .cart {
+                display: grid;
+                grid-template-columns: 1fr 330px;
+                gap: 26px;
+                align-items: start;
+                padding-bottom: 40px
+            }
+
+            .ch2,.crow {
+                display: grid;
+                grid-template-columns: minmax(0,2.4fr) 1fr 1.5fr 1fr;
+                gap: 10px;
+                align-items: center
+            }
+
+            .ch2 {
+                background: #93e3e8;
+                border-radius: 10px;
+                padding: 12px 16px;
+                font-size: 18px;
+                color: #111
+            }
+
+            .ch2 span:not(:first-child),.crow>span {
+                text-align: center
+            }
+
+            .cbox {
+                display: none;
+                border: 1px solid var(--ink);
+                border-radius: 10px;
+                margin-top: 12px;
+                padding: 0 10px
+            }
+
+            body:has(.cb:checked) .cbox {
+                display: block
+            }
+
+            .crow {
+                display: none;
+                padding: 10px 6px;
+                border-bottom: 1px solid var(--ink)
+            }
+
+            .crow:last-child {
+                border-bottom: 0
+            }
+
+            .cp {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                min-width: 0
+            }
+
+            .cp .pic {
+                width: 56px;
+                height: 64px;
+                flex: none;
+                padding: 3px
+            }
+
+            .cp .im {
+                height: 56px
+            }
+
+            .cp small {
+                opacity: .7
+            }
+
+            .rm {
+                cursor: pointer;
+                font-size: 18px
+            }
+
+            .empty {
+                text-align: center;
+                padding: 40px 0;
+                opacity: .8
+            }
+
+            body:has(.cb:checked) .empty {
+                display: none
+            }
+
+            .sumbox {
+                border: 1px solid var(--ink);
+                border-radius: 10px;
+                padding: 14px;
+                position: sticky;
+                top: 90px
+            }
+
+            .sumbox h2 {
+                font-size: 20px;
+                font-weight: 500;
+                margin: 0 0 6px;
+                padding-bottom: 4px;
+                border-bottom: 1px solid var(--ink)
+            }
+
+            .promo {
+                display: flex;
+                gap: 6px;
+                margin: 4px 0 8px
+            }
+
+            .promo input {
+                flex: 1;
+                min-width: 0;
+                border: 1px solid #999;
+                border-radius: 4px;
+                padding: 6px 8px;
+                font: 400 14px Poppins;
+                background: #fff;
+                color: #111
+            }
+
+            .sbtn {
+                border-radius: 4px;
+                background: var(--blue);
+                color: #fff;
+                padding: 6px 12px;
+                font: 500 13px Poppins
+            }
+
+            .srow {
+                display: flex;
+                justify-content: space-between;
+                padding: 8px 0;
+                opacity: .85
+            }
+
+            .stot {
+                display: flex;
+                justify-content: space-between;
+                border-top: 1px solid var(--ink);
+                margin-top: 6px;
+                padding-top: 12px;
+                font-size: 18px
+            }
+
+            .chk {
+                display: block;
+                text-align: center;
+                margin-top: 14px;
+                border-radius: 10px;
+                background: #3399cc;
+                color: #fff;
+                font: 700 clamp(24px,3vw,32px) Dosis,sans-serif;
+                text-transform: uppercase;
+                padding: 10px;
+                letter-spacing: .04em
+            }
+
+            .chk:hover {
+                background: var(--navy)
+            }
+
+            .pm {
+                font-size: 12px;
+                opacity: .75
+            }
+
+            @media (max-width: 860px) {
+                .cart {
+                    grid-template-columns:1fr
+                }
+
+                .sumbox {
+                    position: static
+                }
+            }
+
+            @media (max-width: 700px) {
+                .view {
+                    overflow-x:auto;
+                    scroll-snap-type: x mandatory
+                }
+
+                .track {
+                    transform: none!important
+                }
+
+                .pg {
+                    display: flex;
+                    gap: 16px;
+                    margin-right: 16px;
+                    flex: none
+                }
+
+                .card {
+                    flex: 0 0 72vw;
+                    scroll-snap-align: start
+                }
+
+                .arrow {
+                    display: none
+                }
+
+                .ch2 {
+                    display: none
+                }
+
+                .crow {
+                    grid-template-columns: 1fr 1fr 1fr
+                }
+
+                .crow .cp {
+                    grid-column: 1/-1
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <input type="checkbox" class="hid cb" id="cb-eyeframes0" style="--p:1995" aria-label="Add Sadie to cart">
+        <input type="checkbox" class="hid cb" id="cb-eyeframes1" style="--p:1995" aria-label="Add Arden to cart">
+        <input type="checkbox" class="hid cb" id="cb-eyeframes2" style="--p:1995" aria-label="Add Octavio to cart">
+        <input type="checkbox" class="hid cb" id="cb-eyeframes3" style="--p:1995" aria-label="Add Holly to cart">
+        <input type="checkbox" class="hid cb" id="cb-eyeframes4" style="--p:1995" aria-label="Add Georgie to cart">
+        <input type="checkbox" class="hid cb" id="cb-eyeframes5" style="--p:1995" aria-label="Add Drew to cart">
+        <input type="checkbox" class="hid cb" id="cb-lenses0" style="--p:450" aria-label="Add NewLook to cart">
+        <input type="checkbox" class="hid cb" id="cb-lenses1" style="--p:879" aria-label="Add Air Optix to cart">
+        <input type="checkbox" class="hid cb" id="cb-lenses2" style="--p:955" aria-label="Add Freshlook to cart">
+        <input type="checkbox" class="hid cb" id="cb-lenses3" style="--p:795" aria-label="Add Dailies AquaComfort Plus to cart">
+        <input type="checkbox" class="hid cb" id="cb-lenses4" style="--p:850" aria-label="Add NewLook to cart">
+        <input type="checkbox" class="hid cb" id="cb-lenses5" style="--p:765" aria-label="Add Precision 1 to cart">
+        <input type="checkbox" class="hid cb" id="cb-sunglasses0" style="--p:1495" aria-label="Add Cleo to cart">
+        <input type="checkbox" class="hid cb" id="cb-sunglasses1" style="--p:1495" aria-label="Add Soren to cart">
+        <input type="checkbox" class="hid cb" id="cb-sunglasses2" style="--p:1995" aria-label="Add Paloma to cart">
+        <input type="checkbox" class="hid cb" id="cb-sunglasses3" style="--p:1495" aria-label="Add Dane to cart">
+        <input type="checkbox" class="hid cb" id="cb-sunglasses4" style="--p:1495" aria-label="Add Triton to cart">
+        <input type="checkbox" class="hid cb" id="cb-sunglasses5" style="--p:1495" aria-label="Add Luca to cart">
+        <input type="checkbox" class="hid cb" id="cb-cases0" style="--p:645" aria-label="Add Simplicity to cart">
+        <input type="checkbox" class="hid cb" id="cb-cases1" style="--p:585" aria-label="Add Simplicity to cart">
+        <input type="checkbox" class="hid cb" id="cb-cases2" style="--p:745" aria-label="Add AtelierPall to cart">
+        <input type="checkbox" class="hid cb" id="cb-cases3" style="--p:590" aria-label="Add MetroSunnies Charm to cart">
+        <input type="checkbox" class="hid cb" id="cb-cases4" style="--p:670" aria-label="Add Simplicity to cart">
+        <input type="checkbox" class="hid cb" id="cb-cases5" style="--p:760" aria-label="Add Levenger to cart">
+        <input type="checkbox" class="hid cb" id="cb-solution0" style="--p:365" aria-label="Add AquaSoft Lens Conditioner to cart">
+        <input type="checkbox" class="hid cb" id="cb-solution1" style="--p:140" aria-label="Add Refresh Daily Eye Drops to cart">
+        <input type="checkbox" class="hid cb" id="cb-solution2" style="--p:260" aria-label="Add Rohto Aqua Tired Eye Relief Lubricant Eye Drops to cart">
+        <input type="checkbox" class="hid cb" id="cb-solution3" style="--p:310" aria-label="Add Thera Tears to cart">
+        <input type="checkbox" class="hid cb" id="cb-solution4" style="--p:420" aria-label="Add SuperEyes Saline Solution to cart">
+        <input type="checkbox" class="hid cb" id="cb-solution5" style="--p:185" aria-label="Add Bausch &amp; Lomb Moisture Eyes to cart">
+        <div class="tagline">EYE CARE, BECAUSE WE CARE.</div>
+        <header>
+            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Homepage — EyeCare.html" id="top-bar" class="brand sm" aria-label="EyeCare home" style="width: 25%">
+                <img src="c:\Users\Cha_En\Downloads\EyeCare Website\images\logo.png" alt="EyeCare" style="width: 75%; height: auto">
+            </a>
+            <nav aria-label="Main">
+                <a class="link" href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\About Us — EyeCare.html">About</a>
+                <a class="link" href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Frames & Products — EyeCare.html">Frames</a>
+                <a class="link" href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Services — EyeCare.html">Services</a>
+                <a class="link" href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Contact Us — EyeCare.html">Contact Us</a>
+                <a href="#search" aria-label="Search">
+                    <img class="ico" src="c:\Users\Cha_En\Downloads\EyeCare Website\images\search.png" alt="Search Icon" style="width: 100%">
+                </a>
+                <a href="#cart" class="cartlink" aria-label="Cart">
+                    <img class="ico" src="c:\Users\Cha_En\Downloads\EyeCare Website\images\cart.png" alt="Cart" style="width: 100%">
+                    <span class="badge" aria-hidden="true"></span>
+                </a>
+            </nav>
+        </header>
+        <main>
+            <div class="wrap" style="max-width:none;padding:0">
+                <div id="selections">
+                    <section class="sel" id="s-eyeframes">
+                        <h2>Eyeframes Selection</h2>
+                        <div class="car">
+                            <input type="radio" class="hid rd" name="sl-eyeframes" id="sl-eyeframes-1" checked aria-label="First three">
+                            <input type="radio" class="hid rd" name="sl-eyeframes" id="sl-eyeframes-2" aria-label="Last three">
+                            <label for="sl-eyeframes-1" class="arrow l">&#8249;</label>
+                            <div class="view">
+                                <div class="track">
+                                    <div class="pg">
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-eyeframes0" role="img" aria-label="Sadie"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Model:</b> Sadie
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Cove, Whiskey</li>
+                                                <li>Style: Square</li>
+                                                <li>Best for: Diamond, round, and Heart face shapes</li>
+                                                <li>
+                                                    <b>Price: Php 1,995</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-eyeframes0" for="cb-eyeframes0">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-eyeframes1" role="img" aria-label="Arden"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Model:</b> Arden
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Dark Smoke, Rosewater</li>
+                                                <li>Style: Round</li>
+                                                <li>Best for: Square, Heart, and Diamond face shapes</li>
+                                                <li>
+                                                    <b>Price: Php 1,995</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-eyeframes1" for="cb-eyeframes1">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-eyeframes2" role="img" aria-label="Octavio"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Model:</b> Octavio
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Soybean, Bronze Tort</li>
+                                                <li>Style: Square Pilot</li>
+                                                <li>Best for: Round and Oval face shapes</li>
+                                                <li>
+                                                    <b>Price: Php 1,995</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-eyeframes2" for="cb-eyeframes2">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                    </div>
+                                    <div class="pg">
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-eyeframes3" role="img" aria-label="Holly"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Model:</b> Holly
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Silver, Tinsel</li>
+                                                <li>Style: Cateye</li>
+                                                <li>Best for: Square, Heart, and Diamond face shapes</li>
+                                                <li>
+                                                    <b>Price: Php 1,995</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-eyeframes3" for="cb-eyeframes3">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-eyeframes4" role="img" aria-label="Georgie"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Model:</b> Georgie
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Charcoal, Aura</li>
+                                                <li>Style: Round</li>
+                                                <li>Best for: Square, Oval, and Diamond face shapes</li>
+                                                <li>
+                                                    <b>Price: Php 1,995</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-eyeframes4" for="cb-eyeframes4">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-eyeframes5" role="img" aria-label="Drew"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Model:</b> Drew
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Almond, Ant</li>
+                                                <li>Style: Square</li>
+                                                <li>Best for: Diamond, Round, and Heart face shapes</li>
+                                                <li>
+                                                    <b>Price: Php 1,995</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-eyeframes5" for="cb-eyeframes5">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                            <label for="sl-eyeframes-2" class="arrow r">&#8250;</label>
+                        </div>
+                        <div class="vabox">
+                            <a class="va" href="#all-eyeframes">View All</a>
+                        </div>
+                    </section>
+                    <section class="sel" id="s-lenses">
+                        <h2>Contact Lenses Selection</h2>
+                        <div class="car">
+                            <input type="radio" class="hid rd" name="sl-lenses" id="sl-lenses-1" checked aria-label="First three">
+                            <input type="radio" class="hid rd" name="sl-lenses" id="sl-lenses-2" aria-label="Last three">
+                            <label for="sl-lenses-1" class="arrow l">&#8249;</label>
+                            <div class="view">
+                                <div class="track">
+                                    <div class="pg">
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-lenses0" role="img" aria-label="NewLook"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Brand:</b> NewLook
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Pearl Grey</li>
+                                                <li>Water content: 38%</li>
+                                                <li>Lens diameter: 14.3 mm</li>
+                                                <li>
+                                                    <b>Price: Php 450</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-lenses0" for="cb-lenses0">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-lenses1" role="img" aria-label="Air Optix"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Brand:</b> Air Optix
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Aqua Night</li>
+                                                <li>Water content: 24%</li>
+                                                <li>Lens diameter: 13.8 mm</li>
+                                                <li>
+                                                    <b>Price: Php 879</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-lenses1" for="cb-lenses1">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-lenses2" role="img" aria-label="Freshlook"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Brand:</b> Freshlook
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Colorblends</li>
+                                                <li>Water content: 55%</li>
+                                                <li>Lens diameter: 14.5 mm</li>
+                                                <li>
+                                                    <b>Price: Php 955</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-lenses2" for="cb-lenses2">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                    </div>
+                                    <div class="pg">
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-lenses3" role="img" aria-label="Dailies AquaComfort Plus"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Brand:</b> Dailies AquaComfort Plus
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Natural Color</li>
+                                                <li>Water content: 69%</li>
+                                                <li>Lens diameter: 14.0 mm</li>
+                                                <li>
+                                                    <b>Price: Php 795</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-lenses3" for="cb-lenses3">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-lenses4" role="img" aria-label="NewLook"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Brand:</b> NewLook
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Lite Tint</li>
+                                                <li>Water content: 47%</li>
+                                                <li>Lens diameter: 14.2 mm</li>
+                                                <li>
+                                                    <b>Price: Php 850</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-lenses4" for="cb-lenses4">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-lenses5" role="img" aria-label="Precision 1"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Brand:</b> Precision 1
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Natural Color</li>
+                                                <li>Water content: 51%</li>
+                                                <li>Lens diameter: 14.2 mm</li>
+                                                <li>
+                                                    <b>Price: Php 765</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-lenses5" for="cb-lenses5">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                            <label for="sl-lenses-2" class="arrow r">&#8250;</label>
+                        </div>
+                        <div class="vabox">
+                            <a class="va" href="#all-lenses">View All</a>
+                        </div>
+                    </section>
+                    <section class="sel" id="s-sunglasses">
+                        <h2>Sunglasses Selection</h2>
+                        <div class="car">
+                            <input type="radio" class="hid rd" name="sl-sunglasses" id="sl-sunglasses-1" checked aria-label="First three">
+                            <input type="radio" class="hid rd" name="sl-sunglasses" id="sl-sunglasses-2" aria-label="Last three">
+                            <label for="sl-sunglasses-1" class="arrow l">&#8249;</label>
+                            <div class="view">
+                                <div class="track">
+                                    <div class="pg">
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-sunglasses0" role="img" aria-label="Cleo"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Model:</b> Cleo
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Espresso Gold, Silver Smoke</li>
+                                                <li>Style: Narrow Oval</li>
+                                                <li>Best for: Square, Heart, and Diamond face shapes</li>
+                                                <li>
+                                                    <b>Price: Php 1,495</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-sunglasses0" for="cb-sunglasses0">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-sunglasses1" role="img" aria-label="Soren"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Model:</b> Soren
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Gold Olive, Noir Champagne</li>
+                                                <li>Style: Retro Oval</li>
+                                                <li>Best for: Square, Heart, and Oblong face shapes</li>
+                                                <li>
+                                                    <b>Price: Php 1,495</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-sunglasses1" for="cb-sunglasses1">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-sunglasses2" role="img" aria-label="Paloma"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Model:</b> Paloma
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Champagne Smoke, Rosegold Amber</li>
+                                                <li>Style: Geometric Diamond</li>
+                                                <li>Best for: Round, Oval, and Heart face shapes</li>
+                                                <li>
+                                                    <b>Price: Php 1,995</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-sunglasses2" for="cb-sunglasses2">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                    </div>
+                                    <div class="pg">
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-sunglasses3" role="img" aria-label="Dane"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Model:</b> Dane
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Nutmeg, Clover</li>
+                                                <li>Style: Rectangle</li>
+                                                <li>Best for: Oval, Round, and Narrow face shapes</li>
+                                                <li>
+                                                    <b>Price: Php 1,495</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-sunglasses3" for="cb-sunglasses3">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-sunglasses4" role="img" aria-label="Triton"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Model:</b> Triton
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Ink Thyme, Stone</li>
+                                                <li>Style: Square</li>
+                                                <li>Best for: Round and Oval face shapes</li>
+                                                <li>
+                                                    <b>Price: Php 1,495</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-sunglasses4" for="cb-sunglasses4">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-sunglasses5" role="img" aria-label="Luca"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Model:</b> Luca
+                                            </h3>
+                                            <ul>
+                                                <li>Color: White Gold Polarized, Bronze Polarized</li>
+                                                <li>Style: Square</li>
+                                                <li>Best for: Square, Oval, and Heart face shapes</li>
+                                                <li>
+                                                    <b>Price: Php 1,495</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-sunglasses5" for="cb-sunglasses5">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                            <label for="sl-sunglasses-2" class="arrow r">&#8250;</label>
+                        </div>
+                        <div class="vabox">
+                            <a class="va" href="#all-sunglasses">View All</a>
+                        </div>
+                    </section>
+                    <section class="sel" id="s-cases">
+                        <h2>Eyewear Casing Selection</h2>
+                        <div class="car">
+                            <input type="radio" class="hid rd" name="sl-cases" id="sl-cases-1" checked aria-label="First three">
+                            <input type="radio" class="hid rd" name="sl-cases" id="sl-cases-2" aria-label="Last three">
+                            <label for="sl-cases-1" class="arrow l">&#8249;</label>
+                            <div class="view">
+                                <div class="track">
+                                    <div class="pg">
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-cases0" role="img" aria-label="Simplicity"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Brand:</b> Simplicity
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Brown</li>
+                                                <li>Style: Faux-Leather</li>
+                                                <li>
+                                                    <b>Price: Php 645</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-cases0" for="cb-cases0">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-cases1" role="img" aria-label="Simplicity"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Brand:</b> Simplicity
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Black</li>
+                                                <li>Style: PU-Leather</li>
+                                                <li>
+                                                    <b>Price: Php 585</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-cases1" for="cb-cases1">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-cases2" role="img" aria-label="AtelierPall"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Brand:</b> AtelierPall
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Black</li>
+                                                <li>Style: Leather</li>
+                                                <li>
+                                                    <b>Price: Php 745</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-cases2" for="cb-cases2">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                    </div>
+                                    <div class="pg">
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-cases3" role="img" aria-label="MetroSunnies Charm"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Brand:</b> MetroSunnies Charm
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Pink</li>
+                                                <li>Style: Hard Case</li>
+                                                <li>
+                                                    <b>Price: Php 590</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-cases3" for="cb-cases3">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-cases4" role="img" aria-label="Simplicity"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Brand:</b> Simplicity
+                                            </h3>
+                                            <ul>
+                                                <li>Color: HTF</li>
+                                                <li>Style: Blue</li>
+                                                <li>
+                                                    <b>Price: Php 670</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-cases4" for="cb-cases4">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-cases5" role="img" aria-label="Levenger"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Brand:</b> Levenger
+                                            </h3>
+                                            <ul>
+                                                <li>Color: Red</li>
+                                                <li>Style: Leather</li>
+                                                <li>
+                                                    <b>Price: Php 760</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-cases5" for="cb-cases5">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                            <label for="sl-cases-2" class="arrow r">&#8250;</label>
+                        </div>
+                        <div class="vabox">
+                            <a class="va" href="#all-cases">View All</a>
+                        </div>
+                    </section>
+                    <section class="sel" id="s-solution">
+                        <h2>Eye Solution Selection</h2>
+                        <div class="car">
+                            <input type="radio" class="hid rd" name="sl-solution" id="sl-solution-1" checked aria-label="First three">
+                            <input type="radio" class="hid rd" name="sl-solution" id="sl-solution-2" aria-label="Last three">
+                            <label for="sl-solution-1" class="arrow l">&#8249;</label>
+                            <div class="view">
+                                <div class="track">
+                                    <div class="pg">
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-solution0" role="img" aria-label="AquaSoft Lens Conditioner"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Brand:</b> AquaSoft Lens Conditioner
+                                            </h3>
+                                            <ul>
+                                                <li>Type: Lens Cleaning Solution</li>
+                                                <li>Size: 300 mL</li>
+                                                <li>
+                                                    <b>Price: Php 365</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-solution0" for="cb-solution0">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-solution1" role="img" aria-label="Refresh Daily Eye Drops"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Brand:</b> Refresh Daily Eye Drops
+                                            </h3>
+                                            <ul>
+                                                <li>Type: Lubricant Eye Drops</li>
+                                                <li>Size: 8 mL</li>
+                                                <li>
+                                                    <b>Price: Php 140</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-solution1" for="cb-solution1">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-solution2" role="img" aria-label="Rohto Aqua Tired Eye Relief Lubricant Eye Drops"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Brand:</b> Rohto Aqua Tired Eye Relief Lubricant Eye Drops
+                                            </h3>
+                                            <ul>
+                                                <li>Type: Lubricant Eye Drops</li>
+                                                <li>Size: 13 mL</li>
+                                                <li>
+                                                    <b>Price: Php 260</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-solution2" for="cb-solution2">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                    </div>
+                                    <div class="pg">
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-solution3" role="img" aria-label="Thera Tears"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Brand:</b> Thera Tears
+                                            </h3>
+                                            <ul>
+                                                <li>Type: Lubricant Eye Drops</li>
+                                                <li>Size: 30 mL</li>
+                                                <li>
+                                                    <b>Price: Php 310</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-solution3" for="cb-solution3">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-solution4" role="img" aria-label="SuperEyes Saline Solution"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Brand:</b> SuperEyes Saline Solution
+                                            </h3>
+                                            <ul>
+                                                <li>Type: All in One Lens Solution</li>
+                                                <li>Size: 360 mL</li>
+                                                <li>
+                                                    <b>Price: Php 420</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-solution4" for="cb-solution4">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                        <article class="card">
+                                            <div class="pic">
+                                                <div class="im i-solution5" role="img" aria-label="Bausch &amp; Lomb Moisture Eyes"></div>
+                                            </div>
+                                            <h3>
+                                                <b>Brand:</b> Bausch &amp;Lomb Moisture Eyes
+                                            </h3>
+                                            <ul>
+                                                <li>Type: Lubricant Eye Drops</li>
+                                                <li>Size: 10 mL</li>
+                                                <li>
+                                                    <b>Price: Php 185</b>
+                                                </li>
+                                            </ul>
+                                            <label class="pbtn p-solution5" for="cb-solution5">
+                                                <span class="a">Purchase</span>
+                                                <span class="b">Added ✓</span>
+                                            </label>
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                            <label for="sl-solution-2" class="arrow r">&#8250;</label>
+                        </div>
+                        <div class="vabox">
+                            <a class="va" href="#all-solution">View All</a>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <section class="catalog" id="search">
+                <div class="wrap">
+                    <div class="vh">
+                        <h1>Search &amp; browse</h1>
+                        <p>
+                            Jump to a category or scroll through every product. <a class="va" href="#selections">← Back to selections</a>
+                        </p>
+                    </div>
+                    <div class="grp" id="all-eyeframes">
+                        <h2 class="gh">Eyeframes</h2>
+                        <div class="grid">
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-eyeframes0" role="img" aria-label="Sadie"></div>
+                                </div>
+                                <h3>
+                                    <b>Model:</b> Sadie
+                                </h3>
+                                <ul>
+                                    <li>Color: Cove, Whiskey</li>
+                                    <li>Style: Square</li>
+                                    <li>Best for: Diamond, round, and Heart face shapes</li>
+                                    <li>
+                                        <b>Price: Php 1,995</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-eyeframes0" for="cb-eyeframes0">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-eyeframes1" role="img" aria-label="Arden"></div>
+                                </div>
+                                <h3>
+                                    <b>Model:</b> Arden
+                                </h3>
+                                <ul>
+                                    <li>Color: Dark Smoke, Rosewater</li>
+                                    <li>Style: Round</li>
+                                    <li>Best for: Square, Heart, and Diamond face shapes</li>
+                                    <li>
+                                        <b>Price: Php 1,995</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-eyeframes1" for="cb-eyeframes1">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-eyeframes2" role="img" aria-label="Octavio"></div>
+                                </div>
+                                <h3>
+                                    <b>Model:</b> Octavio
+                                </h3>
+                                <ul>
+                                    <li>Color: Soybean, Bronze Tort</li>
+                                    <li>Style: Square Pilot</li>
+                                    <li>Best for: Round and Oval face shapes</li>
+                                    <li>
+                                        <b>Price: Php 1,995</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-eyeframes2" for="cb-eyeframes2">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-eyeframes3" role="img" aria-label="Holly"></div>
+                                </div>
+                                <h3>
+                                    <b>Model:</b> Holly
+                                </h3>
+                                <ul>
+                                    <li>Color: Silver, Tinsel</li>
+                                    <li>Style: Cateye</li>
+                                    <li>Best for: Square, Heart, and Diamond face shapes</li>
+                                    <li>
+                                        <b>Price: Php 1,995</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-eyeframes3" for="cb-eyeframes3">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-eyeframes4" role="img" aria-label="Georgie"></div>
+                                </div>
+                                <h3>
+                                    <b>Model:</b> Georgie
+                                </h3>
+                                <ul>
+                                    <li>Color: Charcoal, Aura</li>
+                                    <li>Style: Round</li>
+                                    <li>Best for: Square, Oval, and Diamond face shapes</li>
+                                    <li>
+                                        <b>Price: Php 1,995</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-eyeframes4" for="cb-eyeframes4">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-eyeframes5" role="img" aria-label="Drew"></div>
+                                </div>
+                                <h3>
+                                    <b>Model:</b> Drew
+                                </h3>
+                                <ul>
+                                    <li>Color: Almond, Ant</li>
+                                    <li>Style: Square</li>
+                                    <li>Best for: Diamond, Round, and Heart face shapes</li>
+                                    <li>
+                                        <b>Price: Php 1,995</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-eyeframes5" for="cb-eyeframes5">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="grp" id="all-lenses">
+                        <h2 class="gh">Contact Lenses</h2>
+                        <div class="grid">
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-lenses0" role="img" aria-label="NewLook"></div>
+                                </div>
+                                <h3>
+                                    <b>Brand:</b> NewLook
+                                </h3>
+                                <ul>
+                                    <li>Color: Pearl Grey</li>
+                                    <li>Water content: 38%</li>
+                                    <li>Lens diameter: 14.3 mm</li>
+                                    <li>
+                                        <b>Price: Php 450</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-lenses0" for="cb-lenses0">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-lenses1" role="img" aria-label="Air Optix"></div>
+                                </div>
+                                <h3>
+                                    <b>Brand:</b> Air Optix
+                                </h3>
+                                <ul>
+                                    <li>Color: Aqua Night</li>
+                                    <li>Water content: 24%</li>
+                                    <li>Lens diameter: 13.8 mm</li>
+                                    <li>
+                                        <b>Price: Php 879</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-lenses1" for="cb-lenses1">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-lenses2" role="img" aria-label="Freshlook"></div>
+                                </div>
+                                <h3>
+                                    <b>Brand:</b> Freshlook
+                                </h3>
+                                <ul>
+                                    <li>Color: Colorblends</li>
+                                    <li>Water content: 55%</li>
+                                    <li>Lens diameter: 14.5 mm</li>
+                                    <li>
+                                        <b>Price: Php 955</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-lenses2" for="cb-lenses2">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-lenses3" role="img" aria-label="Dailies AquaComfort Plus"></div>
+                                </div>
+                                <h3>
+                                    <b>Brand:</b> Dailies AquaComfort Plus
+                                </h3>
+                                <ul>
+                                    <li>Color: Natural Color</li>
+                                    <li>Water content: 69%</li>
+                                    <li>Lens diameter: 14.0 mm</li>
+                                    <li>
+                                        <b>Price: Php 795</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-lenses3" for="cb-lenses3">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-lenses4" role="img" aria-label="NewLook"></div>
+                                </div>
+                                <h3>
+                                    <b>Brand:</b> NewLook
+                                </h3>
+                                <ul>
+                                    <li>Color: Lite Tint</li>
+                                    <li>Water content: 47%</li>
+                                    <li>Lens diameter: 14.2 mm</li>
+                                    <li>
+                                        <b>Price: Php 850</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-lenses4" for="cb-lenses4">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-lenses5" role="img" aria-label="Precision 1"></div>
+                                </div>
+                                <h3>
+                                    <b>Brand:</b> Precision 1
+                                </h3>
+                                <ul>
+                                    <li>Color: Natural Color</li>
+                                    <li>Water content: 51%</li>
+                                    <li>Lens diameter: 14.2 mm</li>
+                                    <li>
+                                        <b>Price: Php 765</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-lenses5" for="cb-lenses5">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="grp" id="all-sunglasses">
+                        <h2 class="gh">Sunglasses</h2>
+                        <div class="grid">
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-sunglasses0" role="img" aria-label="Cleo"></div>
+                                </div>
+                                <h3>
+                                    <b>Model:</b> Cleo
+                                </h3>
+                                <ul>
+                                    <li>Color: Espresso Gold, Silver Smoke</li>
+                                    <li>Style: Narrow Oval</li>
+                                    <li>Best for: Square, Heart, and Diamond face shapes</li>
+                                    <li>
+                                        <b>Price: Php 1,495</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-sunglasses0" for="cb-sunglasses0">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-sunglasses1" role="img" aria-label="Soren"></div>
+                                </div>
+                                <h3>
+                                    <b>Model:</b> Soren
+                                </h3>
+                                <ul>
+                                    <li>Color: Gold Olive, Noir Champagne</li>
+                                    <li>Style: Retro Oval</li>
+                                    <li>Best for: Square, Heart, and Oblong face shapes</li>
+                                    <li>
+                                        <b>Price: Php 1,495</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-sunglasses1" for="cb-sunglasses1">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-sunglasses2" role="img" aria-label="Paloma"></div>
+                                </div>
+                                <h3>
+                                    <b>Model:</b> Paloma
+                                </h3>
+                                <ul>
+                                    <li>Color: Champagne Smoke, Rosegold Amber</li>
+                                    <li>Style: Geometric Diamond</li>
+                                    <li>Best for: Round, Oval, and Heart face shapes</li>
+                                    <li>
+                                        <b>Price: Php 1,995</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-sunglasses2" for="cb-sunglasses2">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-sunglasses3" role="img" aria-label="Dane"></div>
+                                </div>
+                                <h3>
+                                    <b>Model:</b> Dane
+                                </h3>
+                                <ul>
+                                    <li>Color: Nutmeg, Clover</li>
+                                    <li>Style: Rectangle</li>
+                                    <li>Best for: Oval, Round, and Narrow face shapes</li>
+                                    <li>
+                                        <b>Price: Php 1,495</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-sunglasses3" for="cb-sunglasses3">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-sunglasses4" role="img" aria-label="Triton"></div>
+                                </div>
+                                <h3>
+                                    <b>Model:</b> Triton
+                                </h3>
+                                <ul>
+                                    <li>Color: Ink Thyme, Stone</li>
+                                    <li>Style: Square</li>
+                                    <li>Best for: Round and Oval face shapes</li>
+                                    <li>
+                                        <b>Price: Php 1,495</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-sunglasses4" for="cb-sunglasses4">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-sunglasses5" role="img" aria-label="Luca"></div>
+                                </div>
+                                <h3>
+                                    <b>Model:</b> Luca
+                                </h3>
+                                <ul>
+                                    <li>Color: White Gold Polarized, Bronze Polarized</li>
+                                    <li>Style: Square</li>
+                                    <li>Best for: Square, Oval, and Heart face shapes</li>
+                                    <li>
+                                        <b>Price: Php 1,495</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-sunglasses5" for="cb-sunglasses5">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="grp" id="all-cases">
+                        <h2 class="gh">Eyewear Casing</h2>
+                        <div class="grid">
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-cases0" role="img" aria-label="Simplicity"></div>
+                                </div>
+                                <h3>
+                                    <b>Brand:</b> Simplicity
+                                </h3>
+                                <ul>
+                                    <li>Color: Brown</li>
+                                    <li>Style: Faux-Leather</li>
+                                    <li>
+                                        <b>Price: Php 645</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-cases0" for="cb-cases0">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-cases1" role="img" aria-label="Simplicity"></div>
+                                </div>
+                                <h3>
+                                    <b>Brand:</b> Simplicity
+                                </h3>
+                                <ul>
+                                    <li>Color: Black</li>
+                                    <li>Style: PU-Leather</li>
+                                    <li>
+                                        <b>Price: Php 585</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-cases1" for="cb-cases1">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-cases2" role="img" aria-label="AtelierPall"></div>
+                                </div>
+                                <h3>
+                                    <b>Brand:</b> AtelierPall
+                                </h3>
+                                <ul>
+                                    <li>Color: Black</li>
+                                    <li>Style: Leather</li>
+                                    <li>
+                                        <b>Price: Php 745</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-cases2" for="cb-cases2">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-cases3" role="img" aria-label="MetroSunnies Charm"></div>
+                                </div>
+                                <h3>
+                                    <b>Brand:</b> MetroSunnies Charm
+                                </h3>
+                                <ul>
+                                    <li>Color: Pink</li>
+                                    <li>Style: Hard Case</li>
+                                    <li>
+                                        <b>Price: Php 590</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-cases3" for="cb-cases3">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-cases4" role="img" aria-label="Simplicity"></div>
+                                </div>
+                                <h3>
+                                    <b>Brand:</b> Simplicity
+                                </h3>
+                                <ul>
+                                    <li>Color: HTF</li>
+                                    <li>Style: Blue</li>
+                                    <li>
+                                        <b>Price: Php 670</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-cases4" for="cb-cases4">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-cases5" role="img" aria-label="Levenger"></div>
+                                </div>
+                                <h3>
+                                    <b>Brand:</b> Levenger
+                                </h3>
+                                <ul>
+                                    <li>Color: Red</li>
+                                    <li>Style: Leather</li>
+                                    <li>
+                                        <b>Price: Php 760</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-cases5" for="cb-cases5">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="grp" id="all-solution">
+                        <h2 class="gh">Eye Solution</h2>
+                        <div class="grid">
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-solution0" role="img" aria-label="AquaSoft Lens Conditioner"></div>
+                                </div>
+                                <h3>
+                                    <b>Brand:</b> AquaSoft Lens Conditioner
+                                </h3>
+                                <ul>
+                                    <li>Type: Lens Cleaning Solution</li>
+                                    <li>Size: 300 mL</li>
+                                    <li>
+                                        <b>Price: Php 365</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-solution0" for="cb-solution0">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-solution1" role="img" aria-label="Refresh Daily Eye Drops"></div>
+                                </div>
+                                <h3>
+                                    <b>Brand:</b> Refresh Daily Eye Drops
+                                </h3>
+                                <ul>
+                                    <li>Type: Lubricant Eye Drops</li>
+                                    <li>Size: 8 mL</li>
+                                    <li>
+                                        <b>Price: Php 140</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-solution1" for="cb-solution1">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-solution2" role="img" aria-label="Rohto Aqua Tired Eye Relief Lubricant Eye Drops"></div>
+                                </div>
+                                <h3>
+                                    <b>Brand:</b> Rohto Aqua Tired Eye Relief Lubricant Eye Drops
+                                </h3>
+                                <ul>
+                                    <li>Type: Lubricant Eye Drops</li>
+                                    <li>Size: 13 mL</li>
+                                    <li>
+                                        <b>Price: Php 260</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-solution2" for="cb-solution2">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-solution3" role="img" aria-label="Thera Tears"></div>
+                                </div>
+                                <h3>
+                                    <b>Brand:</b> Thera Tears
+                                </h3>
+                                <ul>
+                                    <li>Type: Lubricant Eye Drops</li>
+                                    <li>Size: 30 mL</li>
+                                    <li>
+                                        <b>Price: Php 310</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-solution3" for="cb-solution3">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-solution4" role="img" aria-label="SuperEyes Saline Solution"></div>
+                                </div>
+                                <h3>
+                                    <b>Brand:</b> SuperEyes Saline Solution
+                                </h3>
+                                <ul>
+                                    <li>Type: All in One Lens Solution</li>
+                                    <li>Size: 360 mL</li>
+                                    <li>
+                                        <b>Price: Php 420</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-solution4" for="cb-solution4">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                            <article class="card">
+                                <div class="pic">
+                                    <div class="im i-solution5" role="img" aria-label="Bausch &amp; Lomb Moisture Eyes"></div>
+                                </div>
+                                <h3>
+                                    <b>Brand:</b> Bausch &amp;Lomb Moisture Eyes
+                                </h3>
+                                <ul>
+                                    <li>Type: Lubricant Eye Drops</li>
+                                    <li>Size: 10 mL</li>
+                                    <li>
+                                        <b>Price: Php 185</b>
+                                    </li>
+                                </ul>
+                                <label class="pbtn p-solution5" for="cb-solution5">
+                                    <span class="a">Purchase</span>
+                                    <span class="b">Added ✓</span>
+                                </label>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="cart">
+                <div class="wrap">
+                    <div class="vh">
+                        <h1>Your Cart</h1>
+                    </div>
+                    <div class="cart">
+                        <div>
+                            <div class="ch2">
+                                <span>Product</span>
+                                <span>Price</span>
+                                <span>Quantity</span>
+                                <span>Subtotal</span>
+                            </div>
+                            <div class="cbox">
+                                <div class="crow" id="row-eyeframes0">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-eyeframes0" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-eyeframes0"></div>
+                                        </div>
+                                        <div>
+                                            <b>Sadie</b>
+                                            <br>
+                                            <small>Cove, Whiskey</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 1,995.00</span>
+                                    <span>1</span>
+                                    <span>₱ 1,995.00</span>
+                                </div>
+                                <div class="crow" id="row-eyeframes1">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-eyeframes1" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-eyeframes1"></div>
+                                        </div>
+                                        <div>
+                                            <b>Arden</b>
+                                            <br>
+                                            <small>Dark Smoke, Rosewater</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 1,995.00</span>
+                                    <span>1</span>
+                                    <span>₱ 1,995.00</span>
+                                </div>
+                                <div class="crow" id="row-eyeframes2">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-eyeframes2" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-eyeframes2"></div>
+                                        </div>
+                                        <div>
+                                            <b>Octavio</b>
+                                            <br>
+                                            <small>Soybean, Bronze Tort</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 1,995.00</span>
+                                    <span>1</span>
+                                    <span>₱ 1,995.00</span>
+                                </div>
+                                <div class="crow" id="row-eyeframes3">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-eyeframes3" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-eyeframes3"></div>
+                                        </div>
+                                        <div>
+                                            <b>Holly</b>
+                                            <br>
+                                            <small>Silver, Tinsel</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 1,995.00</span>
+                                    <span>1</span>
+                                    <span>₱ 1,995.00</span>
+                                </div>
+                                <div class="crow" id="row-eyeframes4">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-eyeframes4" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-eyeframes4"></div>
+                                        </div>
+                                        <div>
+                                            <b>Georgie</b>
+                                            <br>
+                                            <small>Charcoal, Aura</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 1,995.00</span>
+                                    <span>1</span>
+                                    <span>₱ 1,995.00</span>
+                                </div>
+                                <div class="crow" id="row-eyeframes5">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-eyeframes5" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-eyeframes5"></div>
+                                        </div>
+                                        <div>
+                                            <b>Drew</b>
+                                            <br>
+                                            <small>Almond, Ant</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 1,995.00</span>
+                                    <span>1</span>
+                                    <span>₱ 1,995.00</span>
+                                </div>
+                                <div class="crow" id="row-lenses0">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-lenses0" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-lenses0"></div>
+                                        </div>
+                                        <div>
+                                            <b>NewLook</b>
+                                            <br>
+                                            <small>Pearl Grey</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 450.00</span>
+                                    <span>1</span>
+                                    <span>₱ 450.00</span>
+                                </div>
+                                <div class="crow" id="row-lenses1">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-lenses1" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-lenses1"></div>
+                                        </div>
+                                        <div>
+                                            <b>Air Optix</b>
+                                            <br>
+                                            <small>Aqua Night</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 879.00</span>
+                                    <span>1</span>
+                                    <span>₱ 879.00</span>
+                                </div>
+                                <div class="crow" id="row-lenses2">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-lenses2" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-lenses2"></div>
+                                        </div>
+                                        <div>
+                                            <b>Freshlook</b>
+                                            <br>
+                                            <small>Colorblends</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 955.00</span>
+                                    <span>1</span>
+                                    <span>₱ 955.00</span>
+                                </div>
+                                <div class="crow" id="row-lenses3">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-lenses3" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-lenses3"></div>
+                                        </div>
+                                        <div>
+                                            <b>Dailies AquaComfort Plus</b>
+                                            <br>
+                                            <small>Natural Color</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 795.00</span>
+                                    <span>1</span>
+                                    <span>₱ 795.00</span>
+                                </div>
+                                <div class="crow" id="row-lenses4">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-lenses4" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-lenses4"></div>
+                                        </div>
+                                        <div>
+                                            <b>NewLook</b>
+                                            <br>
+                                            <small>Lite Tint</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 850.00</span>
+                                    <span>1</span>
+                                    <span>₱ 850.00</span>
+                                </div>
+                                <div class="crow" id="row-lenses5">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-lenses5" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-lenses5"></div>
+                                        </div>
+                                        <div>
+                                            <b>Precision 1</b>
+                                            <br>
+                                            <small>Natural Color</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 765.00</span>
+                                    <span>1</span>
+                                    <span>₱ 765.00</span>
+                                </div>
+                                <div class="crow" id="row-sunglasses0">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-sunglasses0" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-sunglasses0"></div>
+                                        </div>
+                                        <div>
+                                            <b>Cleo</b>
+                                            <br>
+                                            <small>Espresso Gold, Silver Smoke</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 1,495.00</span>
+                                    <span>1</span>
+                                    <span>₱ 1,495.00</span>
+                                </div>
+                                <div class="crow" id="row-sunglasses1">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-sunglasses1" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-sunglasses1"></div>
+                                        </div>
+                                        <div>
+                                            <b>Soren</b>
+                                            <br>
+                                            <small>Gold Olive, Noir Champagne</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 1,495.00</span>
+                                    <span>1</span>
+                                    <span>₱ 1,495.00</span>
+                                </div>
+                                <div class="crow" id="row-sunglasses2">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-sunglasses2" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-sunglasses2"></div>
+                                        </div>
+                                        <div>
+                                            <b>Paloma</b>
+                                            <br>
+                                            <small>Champagne Smoke, Rosegold Amber</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 1,995.00</span>
+                                    <span>1</span>
+                                    <span>₱ 1,995.00</span>
+                                </div>
+                                <div class="crow" id="row-sunglasses3">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-sunglasses3" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-sunglasses3"></div>
+                                        </div>
+                                        <div>
+                                            <b>Dane</b>
+                                            <br>
+                                            <small>Nutmeg, Clover</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 1,495.00</span>
+                                    <span>1</span>
+                                    <span>₱ 1,495.00</span>
+                                </div>
+                                <div class="crow" id="row-sunglasses4">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-sunglasses4" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-sunglasses4"></div>
+                                        </div>
+                                        <div>
+                                            <b>Triton</b>
+                                            <br>
+                                            <small>Ink Thyme, Stone</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 1,495.00</span>
+                                    <span>1</span>
+                                    <span>₱ 1,495.00</span>
+                                </div>
+                                <div class="crow" id="row-sunglasses5">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-sunglasses5" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-sunglasses5"></div>
+                                        </div>
+                                        <div>
+                                            <b>Luca</b>
+                                            <br>
+                                            <small>White Gold Polarized, Bronze Polarized</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 1,495.00</span>
+                                    <span>1</span>
+                                    <span>₱ 1,495.00</span>
+                                </div>
+                                <div class="crow" id="row-cases0">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-cases0" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-cases0"></div>
+                                        </div>
+                                        <div>
+                                            <b>Simplicity</b>
+                                            <br>
+                                            <small>Brown</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 645.00</span>
+                                    <span>1</span>
+                                    <span>₱ 645.00</span>
+                                </div>
+                                <div class="crow" id="row-cases1">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-cases1" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-cases1"></div>
+                                        </div>
+                                        <div>
+                                            <b>Simplicity</b>
+                                            <br>
+                                            <small>Black</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 585.00</span>
+                                    <span>1</span>
+                                    <span>₱ 585.00</span>
+                                </div>
+                                <div class="crow" id="row-cases2">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-cases2" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-cases2"></div>
+                                        </div>
+                                        <div>
+                                            <b>AtelierPall</b>
+                                            <br>
+                                            <small>Black</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 745.00</span>
+                                    <span>1</span>
+                                    <span>₱ 745.00</span>
+                                </div>
+                                <div class="crow" id="row-cases3">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-cases3" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-cases3"></div>
+                                        </div>
+                                        <div>
+                                            <b>MetroSunnies Charm</b>
+                                            <br>
+                                            <small>Pink</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 590.00</span>
+                                    <span>1</span>
+                                    <span>₱ 590.00</span>
+                                </div>
+                                <div class="crow" id="row-cases4">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-cases4" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-cases4"></div>
+                                        </div>
+                                        <div>
+                                            <b>Simplicity</b>
+                                            <br>
+                                            <small>HTF</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 670.00</span>
+                                    <span>1</span>
+                                    <span>₱ 670.00</span>
+                                </div>
+                                <div class="crow" id="row-cases5">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-cases5" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-cases5"></div>
+                                        </div>
+                                        <div>
+                                            <b>Levenger</b>
+                                            <br>
+                                            <small>Red</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 760.00</span>
+                                    <span>1</span>
+                                    <span>₱ 760.00</span>
+                                </div>
+                                <div class="crow" id="row-solution0">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-solution0" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-solution0"></div>
+                                        </div>
+                                        <div>
+                                            <b>AquaSoft Lens Conditioner</b>
+                                            <br>
+                                            <small>Lens Cleaning Solution</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 365.00</span>
+                                    <span>1</span>
+                                    <span>₱ 365.00</span>
+                                </div>
+                                <div class="crow" id="row-solution1">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-solution1" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-solution1"></div>
+                                        </div>
+                                        <div>
+                                            <b>Refresh Daily Eye Drops</b>
+                                            <br>
+                                            <small>Lubricant Eye Drops</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 140.00</span>
+                                    <span>1</span>
+                                    <span>₱ 140.00</span>
+                                </div>
+                                <div class="crow" id="row-solution2">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-solution2" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-solution2"></div>
+                                        </div>
+                                        <div>
+                                            <b>Rohto Aqua Tired Eye Relief Lubricant Eye Drops</b>
+                                            <br>
+                                            <small>Lubricant Eye Drops</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 260.00</span>
+                                    <span>1</span>
+                                    <span>₱ 260.00</span>
+                                </div>
+                                <div class="crow" id="row-solution3">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-solution3" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-solution3"></div>
+                                        </div>
+                                        <div>
+                                            <b>Thera Tears</b>
+                                            <br>
+                                            <small>Lubricant Eye Drops</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 310.00</span>
+                                    <span>1</span>
+                                    <span>₱ 310.00</span>
+                                </div>
+                                <div class="crow" id="row-solution4">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-solution4" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-solution4"></div>
+                                        </div>
+                                        <div>
+                                            <b>SuperEyes Saline Solution</b>
+                                            <br>
+                                            <small>All in One Lens Solution</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 420.00</span>
+                                    <span>1</span>
+                                    <span>₱ 420.00</span>
+                                </div>
+                                <div class="crow" id="row-solution5">
+                                    <div class="cp">
+                                        <label class="rm" for="cb-solution5" aria-label="Remove">✕</label>
+                                        <div class="pic">
+                                            <div class="im i-solution5"></div>
+                                        </div>
+                                        <div>
+                                            <b>Bausch &amp; Lomb Moisture Eyes</b>
+                                            <br>
+                                            <small>Lubricant Eye Drops</small>
+                                        </div>
+                                    </div>
+                                    <span>₱ 185.00</span>
+                                    <span>1</span>
+                                    <span>₱ 185.00</span>
+                                </div>
+                            </div>
+                            <div class="empty">
+                                <p>Your cart is empty.</p>
+                                <a class="va" href="#selections">Browse products</a>
+                            </div>
+                        </div>
+                        <aside>
+                            <div class="sumbox">
+                                <h2>Order Summary</h2>
+                                <label for="pc">Enter promocode</label>
+                                <div class="promo">
+                                    <input id="pc" placeholder="Input">
+                                    <span class="sbtn">Submit</span>
+                                </div>
+                                <div class="srow">
+                                    <span>Subtotal</span>
+                                    <span class="amt"></span>
+                                </div>
+                                <div class="srow">
+                                    <span>Shipping fee</span>
+                                    <span>at checkout</span>
+                                </div>
+                                <div class="srow">
+                                    <span>Discount</span>
+                                    <span>₱ 0.00</span>
+                                </div>
+                                <div class="stot">
+                                    <span>TOTAL</span>
+                                    <b class="amt"></b>
+                                </div>
+                            </div>
+                            <a class="chk" href="#">Checkout</a>
+                            <p class="pm">Each item is added once. Shipping is ₱ 100, free from ₱ 2,000; promo codes are applied at checkout.</p>
+                        </aside>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <section class="about">
+            <div class="logo-wrap">
+                <img class="brand-lg" src="c:\Users\Cha_En\Downloads\EyeCare Website\images\logo.png" alt="EyeCare">
+            </div>
+            <div>
+                <h2>EYECARE</h2>
+                <h3>Eye care, because we care.</h3>
+                <p>EYECARE brings vision care and personal style together with eyewear, eye exams, prescription updates, and frame repairs—all in one place.</p>
+            </div>
+        </section>
+        <footer id="contact">
+            <div class="cols">
+                <div>
+                    <h4>Products</h4>
+                    <ul>
+                        <li>
+                            <a href="#all-eyeframes">Eyeglasses</a>
+                        </li>
+                        <li>
+                            <a href="#all-lenses">Contact Lenses</a>
+                        </li>
+                        <li>
+                            <a href="#all-sunglasses">Sunglasses</a>
+                        </li>
+                        <li>
+                            <a href="#all-cases">Eyewear Cases</a>
+                        </li>
+                        <li>
+                            <a href="#all-solution">Eye Solution</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Services</h4>
+                    <ul>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Services — EyeCare.html">Eye Exam</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Services — EyeCare.html">Prescriptions</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Services — EyeCare.html">Frame Repairs</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Information</h4>
+                    <ul>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\About Us — EyeCare.html">About Us</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\About Us — EyeCare.html">Vision</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\About Us — EyeCare.html">Mission</a>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\FAQs — EyeCare.html">FAQs</a>
+                        </li>
+                        <li>
+                            <a href="c:\Users\Cha_En\Downloads\EyeCare Website\Final Directory Path\Site Map — EyeCare.html">Site Map</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="contact">
+                    <h4>Contact/Follow Us</h4>
+                    <ul>
+                        <li>
+                            <img src="c:\Users\Cha_En\Downloads\EyeCare Website\images\telephone.png" alt="Phone" style="width: 12%; height: auto">
+                            <a href="tel:+639000000000">+63 917 123 4567</a>
+                        </li>
+                        <li>
+                            <img src="c:\Users\Cha_En\Downloads\EyeCare Website\images\email.png" alt="Email" style="width: 12%; height: auto">
+                            <a href="mailto:username@domain">eyecareofficial@gmail.com</a>
+                        </li>
+                        <li>
+                            <img src="c:\Users\Cha_En\Downloads\EyeCare Website\images\location.png" alt="Address" style="width: 12%; height: auto">
+                            <span>Makati City, Metro Manila, Philippines</span>
+                        </li>
+                        <li>
+                            <img src="c:\Users\Cha_En\Downloads\EyeCare Website\images\domain.png" alt="Website" style="width: 12%; height: auto">
+                            <span>www.EyeCare.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p class="copy">© 2026 EyeCare. All Rights Reserved.</p>
+        </footer>
+    </body>
+</html>
